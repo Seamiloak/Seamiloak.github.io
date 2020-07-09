@@ -8,18 +8,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>bugku-web | 一颗小柠檬</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="持续更新中…1.web2查看源码之后一眼就能看到flag：KEY{Web-2-bugKssNNikls9100}  2.计算器查看源码，图中所指限制了输入数字的个数，改成比计算结果大的数字就可以获得flag flag：flag{CTF-bugku-0032}">
+  <meta name="description" content="持续更新中…1.web2查看源码之后一眼就能看到flag：KEY{Web-2-bugKssNNikls9100}  2.计算器查看源码，图中所指限制了输入数字的个数，改成比计算结果大的数字就可以获得flag flag：flag{CTF-bugku-0032}  3.因为$_GET传参时请求的参数是在url中的，因此修改网址在其后面加上?what&#x3D;flag，回车得到flag。详情请阅读w3schoo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="bugku-web">
 <meta property="og:url" content="http://yoursite.com/2020/07/08/bugku-web/index.html">
 <meta property="og:site_name" content="一颗小柠檬">
-<meta property="og:description" content="持续更新中…1.web2查看源码之后一眼就能看到flag：KEY{Web-2-bugKssNNikls9100}  2.计算器查看源码，图中所指限制了输入数字的个数，改成比计算结果大的数字就可以获得flag flag：flag{CTF-bugku-0032}">
+<meta property="og:description" content="持续更新中…1.web2查看源码之后一眼就能看到flag：KEY{Web-2-bugKssNNikls9100}  2.计算器查看源码，图中所指限制了输入数字的个数，改成比计算结果大的数字就可以获得flag flag：flag{CTF-bugku-0032}  3.因为$_GET传参时请求的参数是在url中的，因此修改网址在其后面加上?what&#x3D;flag，回车得到flag。详情请阅读w3schoo">
 <meta property="og:locale" content="cn">
 <meta property="og:image" content="http://yoursite.com/2020/07/08/bugku-web/web2.png">
 <meta property="og:image" content="http://yoursite.com/2020/07/08/bugku-web/%E8%AE%A1%E7%AE%97%E5%99%A8-1.png">
 <meta property="og:image" content="http://yoursite.com/2020/07/08/bugku-web/%E8%AE%A1%E7%AE%97%E5%99%A8-2.png">
+<meta property="og:image" content="http://yoursite.com/2020/07/08/bugku-web/web%E5%9F%BA%E7%A1%80$_GET.png">
 <meta property="article:published_time" content="2020-07-08T15:56:10.518Z">
-<meta property="article:modified_time" content="2020-07-08T16:26:43.477Z">
+<meta property="article:modified_time" content="2020-07-09T06:09:30.909Z">
 <meta property="article:author" content="Seamiloak">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/2020/07/08/bugku-web/web2.png">
@@ -186,6 +187,8 @@
 <hr>
 <p>2.计算器<br><img src="./%E8%AE%A1%E7%AE%97%E5%99%A8-1.png" alt><br>查看源码，图中所指限制了输入数字的个数，改成比计算结果大的数字就可以获得flag</p>
 <p><img src="./%E8%AE%A1%E7%AE%97%E5%99%A8-2.png" alt><br>flag：flag{CTF-bugku-0032}</p>
+<hr>
+<p>3.<img src="./web%E5%9F%BA%E7%A1%80$_GET.png" alt><br>因为$_GET传参时请求的参数是在url中的，因此修改网址在其后面加上?what=flag，回车得到flag。<br>详情请阅读w3school的html表单部分<br>flag：flag{bugku_get_su8kej2en}</p>
 
       
 
@@ -280,8 +283,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2020/07/08/%E5%AD%A6%E4%BC%9AC++%E5%90%8EPHP%E5%BF%AB%E9%80%9F%E5%AD%A6%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">学会C++后PHP快速学习</div>
+    <a href="/2020/07/08/%E7%BC%96%E7%A0%81%E5%A4%A7%E5%85%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">编码大全</div>
       <i class="icon-circle-right"></i>
     </a>
   
