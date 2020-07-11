@@ -8,19 +8,23 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>bugku-web | 一颗小柠檬</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="持续更新中…1.web2查看源码之后一眼就能看到flag：KEY{Web-2-bugKssNNikls9100}  2.计算器查看源码，图中所指限制了输入数字的个数，改成比计算结果大的数字就可以获得flag flag：flag{CTF-bugku-0032}  3.因为$_GET传参时请求的参数是在url中的，因此修改网址在其后面加上?what&#x3D;flag，回车得到flag。详情请阅读w3schoo">
+  <meta name="description" content="持续更新中…1.web2查看源码之后一眼就能看到flag：KEY{Web-2-bugKssNNikls9100}  2.计算器查看源码，图中所指限制了输入数字的个数，改成比计算结果大的数字就可以获得flag flag：flag{CTF-bugku-0032}  3.因为$_GET传参时请求的参数是在url中的，专业术语就是，查询字符串（名称&#x2F;值对）是在 GET 请求的 URL 中发送的，因此修改网">
 <meta property="og:type" content="article">
 <meta property="og:title" content="bugku-web">
 <meta property="og:url" content="http://yoursite.com/2020/07/08/bugku-web/index.html">
 <meta property="og:site_name" content="一颗小柠檬">
-<meta property="og:description" content="持续更新中…1.web2查看源码之后一眼就能看到flag：KEY{Web-2-bugKssNNikls9100}  2.计算器查看源码，图中所指限制了输入数字的个数，改成比计算结果大的数字就可以获得flag flag：flag{CTF-bugku-0032}  3.因为$_GET传参时请求的参数是在url中的，因此修改网址在其后面加上?what&#x3D;flag，回车得到flag。详情请阅读w3schoo">
+<meta property="og:description" content="持续更新中…1.web2查看源码之后一眼就能看到flag：KEY{Web-2-bugKssNNikls9100}  2.计算器查看源码，图中所指限制了输入数字的个数，改成比计算结果大的数字就可以获得flag flag：flag{CTF-bugku-0032}  3.因为$_GET传参时请求的参数是在url中的，专业术语就是，查询字符串（名称&#x2F;值对）是在 GET 请求的 URL 中发送的，因此修改网">
 <meta property="og:locale" content="cn">
 <meta property="og:image" content="http://yoursite.com/2020/07/08/bugku-web/web2.png">
 <meta property="og:image" content="http://yoursite.com/2020/07/08/bugku-web/%E8%AE%A1%E7%AE%97%E5%99%A8-1.png">
 <meta property="og:image" content="http://yoursite.com/2020/07/08/bugku-web/%E8%AE%A1%E7%AE%97%E5%99%A8-2.png">
 <meta property="og:image" content="http://yoursite.com/2020/07/08/bugku-web/web%E5%9F%BA%E7%A1%80$_GET.png">
+<meta property="og:image" content="http://yoursite.com/2020/07/08/bugku-web/web%E5%9F%BA%E7%A1%80$_POST.png">
+<meta property="og:image" content="http://yoursite.com/2020/07/08/bugku-web/%E7%9F%9B%E7%9B%BE.png">
+<meta property="og:image" content="http://yoursite.com/2020/07/08/bugku-web/web3-1.png">
+<meta property="og:image" content="http://yoursite.com/2020/07/08/bugku-web/web3-2.png">
 <meta property="article:published_time" content="2020-07-08T15:56:10.518Z">
-<meta property="article:modified_time" content="2020-07-09T06:09:30.909Z">
+<meta property="article:modified_time" content="2020-07-11T09:38:50.218Z">
 <meta property="article:author" content="Seamiloak">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/2020/07/08/bugku-web/web2.png">
@@ -188,7 +192,14 @@
 <p>2.计算器<br><img src="./%E8%AE%A1%E7%AE%97%E5%99%A8-1.png" alt><br>查看源码，图中所指限制了输入数字的个数，改成比计算结果大的数字就可以获得flag</p>
 <p><img src="./%E8%AE%A1%E7%AE%97%E5%99%A8-2.png" alt><br>flag：flag{CTF-bugku-0032}</p>
 <hr>
-<p>3.<img src="./web%E5%9F%BA%E7%A1%80$_GET.png" alt><br>因为$_GET传参时请求的参数是在url中的，因此修改网址在其后面加上?what=flag，回车得到flag。<br>详情请阅读w3school的html表单部分<br>flag：flag{bugku_get_su8kej2en}</p>
+<p>3.<img src="./web%E5%9F%BA%E7%A1%80$_GET.png" alt><br>因为$_GET传参时请求的参数是在url中的，专业术语就是，查询字符串（名称/值对）是在 GET 请求的 URL 中发送的，因此修改网址在其后面加上?what=flag，回车得到flag。<br>详情请阅读w3school的html表单部分<br>flag：flag{bugku_get_su8kej2en}</p>
+<hr>
+<p>4.<img src="./web%E5%9F%BA%E7%A1%80$_POST.png" alt><br>POST传值不同于GET传值，POST传值数据不会显示在 URL 中，也就是网址中，查询字符串（名称/值对）是在 POST 请求的 HTTP 消息主体中发送的，相对于GET传值是比较安全的，所以这里需要用到hackbar辅助传值，也就是下方的工具栏，在工具栏上方输入url，下方输入表达式，点击Execute按钮执行，值就会被传到服务器，服务器做出响应输出服务器中的参数，也就是这里的flag<br>flag：flag{bugku_get_ssseint67se}</p>
+<hr>
+<p>5.<img src="./%E7%9F%9B%E7%9B%BE.png" alt><br>实际上是弱类型比较，第一个if判断中的is_numeric判断其中的参数是否是纯数字，如果是返回true，否则返回false，第二个if是弱类型判断，这里的函数具体是，当其中的参数等于1时会输出flag。<br>当两个不同类型的参数进行 ‘==’ 比较而非 ‘===’ 比较时，将会转换成相同类型进行比较。<br>1 var_dump(“admin”==0);  //true<br>2 var_dump(“1admin”==1); //true<br>3 var_dump(“admin1”==1) //false<br>4 var_dump(“admin1”==0) //true<br>5 var_dump(“0e123456”==”0e4456789”); //true<br>由第1个和第2个可知，当第一个字符为数字，后面都是字符串或字符时，字符串或字符将会等同于0，整体等于第1个数字加上0，又因为题目具体要求为与 1 比较，所以这时候的GET参数构造就应该为 1xxxxx，xxxxx为任意字母。<br>flag：flag{bugku-789-ps-ssdf}</p>
+<hr>
+<p>6.<img src="./web3-1.png" alt><br>查看源代码发现编码，结合unicode编码特点，确定为unicode编码<br>unicode一般有四种表示形式<br>1 &amp;#x [Hex]: &#x0054;&#x0068;&#x0065;<br>2 &amp;# [Decimal]: &#00084;&#00104;&#00101;<br>3 \U [Hex]: \U0054\U0068\U0065<br>4 \U+ [Hex]: \U+0054\U+0068\U+0065<br><img src="./web3-2.png" alt><br>flag：KEY{J2sa42ahJK-HS11III}</p>
+<hr>
 
       
 
