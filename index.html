@@ -194,6 +194,82 @@
             
 
   
+    <article id="post-攻防世界-web" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/08/15/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C-web/" target="_blank">攻防世界-web</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/08/15/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C-web/" class="archive-article-date">
+        <time datetime="2020-08-15T08:02:04.015Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-15</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <ol>
+<li>view_source 2020.08.15<br><img src="./view_source-1.png" alt><br>F12就可以<br>flag：cyberpeace{4bfe35eeba1a788880a08ea3bbae5260}</li></ol>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/08/15/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C-web/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-web中xff与referer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -225,8 +301,6 @@
     
     <h1 id="web中xff与referer"><a href="#web中xff与referer" class="headerlink" title="web中xff与referer"></a>web中xff与referer</h1><h2 id="XFF字段"><a href="#XFF字段" class="headerlink" title="XFF字段"></a>XFF字段</h2><p>X-Forwarded-For(XFF)是用来识别通过HTTP代理或负载均衡方式连接到Web服务器的客户端最原始的IP地址的HTTP请求头字段。通俗来说，就是浏览器访问网站的IP。一般格式：<br>X-Forwarded-For: client1, proxy1, proxy2, proxy3<br>左边第一个是浏览器IP，依次往右为第一个代理服务器IP,第二个，第三个（使用逗号+空格进行分割） </p>
 <p>X-Forwarded-For值表示的是IP地址<br>例如：<code>X-Forwarded-For:123.123.123.123</code> </p>
-    
-    <a class="article-more-a" href="/2020/08/12/web%E4%B8%ADxff%E4%B8%8Ereferer/#more">more >></a>
     
     
 
@@ -388,8 +462,6 @@
 <p>根据协议，网站管理员可以在网站域名的根目录下放一个robots.txt 文本文件，里面可以指定不同的网络爬虫能访问的页面和禁止访问的页面，指定的页面由正则表达式表示。网络爬虫在采集这个网站之前，首先获取到这个文件，然后解析到其中的规则，然后根据规则来采集网站的数据。</p>
 <p>为什么需要Robots协议<br>互联网上的网页是通过超级链接互相关联起来的，从而形成了网页的网状结构。爬虫的工作方式就像蜘蛛在网上沿着链接爬来爬去，最基本的流程可以简化如下：</p>
     
-    <a class="article-more-a" href="/2020/08/11/Robots%E5%8D%8F%E8%AE%AE/#more">more >></a>
-    
     
 
     
@@ -464,8 +536,6 @@
   <div class="article-entry" itemprop="articleBody">
     
     <p>1.[HCTF 2018]WarmUp-1 2020.08.09<br><img src="./%5BHCTF%202018%5DWarmUp-1.png" alt><br>打开网页，查看源代码，发现<code>source.php</code>，添加到url后进入<br><img src="./%5BHCTF%202018%5DWarmUp-2.png" alt></p>
-    
-    <a class="article-more-a" href="/2020/08/08/buuctf-web/#more">more >></a>
     
     
 
@@ -636,8 +706,6 @@
     
     <h1 id="0x01-原理"><a href="#0x01-原理" class="headerlink" title="0x01 原理"></a>0x01 原理</h1><p>在SQL中，分号（;）是用来表示一条sql语句的结束。试想一下我们在 ; 结束一个sql语句后继续构造下一条语句，会不会一起执行？因此这个想法也就造就了堆叠注入。而<code>union injection</code>（联合注入）也是将两条语句合并在一起，两者之间有什么区别么？区别就在于<code>union</code> 或者<code>union all</code>执行的语句类型是有限的，可以用来执行查询语句，而堆叠注入可以执行的是任意的语句。例如以下这个例子。用户输入：<code>1; DELETE FROM products</code>服务器端生成的sql语句为：（因未对输入的参数进行过滤）<code>Select * from products where productid=1;DELETE FROM products</code>当执行查询后，第一条显示查询信息，第二条则将整个表进行删除。</p>
     
-    <a class="article-more-a" href="/2020/08/04/sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/#more">more >></a>
-    
     
 
     
@@ -715,8 +783,6 @@
 <p>Sql 注入带来的威胁主要有如下几点：</p>
 <p>·猜解后台数据库，这是利用最多的方式，盗取网站的敏感信息。<br>·绕过认证，列如绕过验证登录网站后台。<br>·注入可以借助数据库的存储过程进行提权等操作</p>
     
-    <a class="article-more-a" href="/2020/07/30/sql%E6%B3%A8%E5%85%A5/#more">more >></a>
-    
     
 
     
@@ -792,8 +858,6 @@
     
     <h1 id="本地文件包含漏洞和php伪协议"><a href="#本地文件包含漏洞和php伪协议" class="headerlink" title="本地文件包含漏洞和php伪协议"></a>本地文件包含漏洞和php伪协议</h1><h2 id="php-filter的应用："><a href="#php-filter的应用：" class="headerlink" title="php://filter的应用："></a>php://filter的应用：</h2><p>1、利用base64获得源码<br>2、通过读写编码实现绕过</p>
 <h2 id="php-filter是什么？"><a href="#php-filter是什么？" class="headerlink" title="php://filter是什么？"></a>php://filter是什么？</h2><p>php://filter是什么：<br>php中独有的一个协议，可以作为一个中间流来处理其他流，可以进行任意文件的读取。</p>
-    
-    <a class="article-more-a" href="/2020/07/17/php%20filter%E7%9A%84%E5%BA%94%E7%94%A8/#more">more >></a>
     
     
 
@@ -871,8 +935,6 @@
     <p>持续更新中… 2020.07.24<br>展开全文有图片<br>1.web2 2020-7-9<br><img src="./web2.png" alt><br>查看源码之后一眼就能看到<br>flag：KEY{Web-2-bugKssNNikls9100}</p>
 <hr>
     
-    <a class="article-more-a" href="/2020/07/08/bugku-web/#more">more >></a>
-    
     
 
     
@@ -888,93 +950,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2020/07/08/bugku-web/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-编码大全" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/07/08/%E7%BC%96%E7%A0%81%E5%A4%A7%E5%85%A8/" target="_blank">编码大全</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/07/08/%E7%BC%96%E7%A0%81%E5%A4%A7%E5%85%A8/" class="archive-article-date">
-        <time datetime="2020-07-08T11:22:41.348Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-08</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>持续更新中… 2020.07.20</p>
-<ol>
-<li><p>摩斯密码：..-./.-../.-/–.</p>
-</li>
-<li><p>栅栏密码：把要加密的明文分成N个一组，然后把每组的第1个字连起来，形成一段无规律的话，例如：KYsd3js2E{a2jda}</p>
-</li>
-<li><p>W型栅栏密码：以密文排列成一个W型然后从左到右，从上到下取出字符组成新的字符串即为明文</p>
-</li>
-<li><p>ook！：Ook.Ook.Ook.Ook.Ook.Ook.Ook！Ook！Ook！</p>
-</li>
-<li><p>brainfuck：+++++ +++++ [-&gt;++ +++++ +++&lt;] &gt;++.+ +++++ .&lt;+++</p></li></ol>
-    
-    <a class="article-more-a" href="/2020/07/08/%E7%BC%96%E7%A0%81%E5%A4%A7%E5%85%A8/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/07/08/%E7%BC%96%E7%A0%81%E5%A4%A7%E5%85%A8/">展开全文 >></a>
     </p>
     
 
