@@ -10,12 +10,12 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="持续更新中… 2020.07.24展开全文有图片1.web2 2020-7-9查看源码之后一眼就能看到flag：KEY{Web-2-bugKssNNikls9100}">
+  <meta name="description" content="持续更新中… 2020.07.24展开全文有图片1.web2 2020-7-9  查看源码之后一眼就能看到flag：KEY{Web-2-bugKssNNikls9100}">
 <meta property="og:type" content="article">
 <meta property="og:title" content="bugku-web">
 <meta property="og:url" content="http://yoursite.com/2020/07/08/bugku-web/index.html">
 <meta property="og:site_name" content="一颗小柠檬">
-<meta property="og:description" content="持续更新中… 2020.07.24展开全文有图片1.web2 2020-7-9查看源码之后一眼就能看到flag：KEY{Web-2-bugKssNNikls9100}">
+<meta property="og:description" content="持续更新中… 2020.07.24展开全文有图片1.web2 2020-7-9  查看源码之后一眼就能看到flag：KEY{Web-2-bugKssNNikls9100}">
 <meta property="og:locale" content="cn">
 <meta property="og:image" content="http://yoursite.com/2020/07/08/bugku-web/web2.png">
 <meta property="og:image" content="http://yoursite.com/2020/07/08/bugku-web/%E8%AE%A1%E7%AE%97%E5%99%A8-1.png">
@@ -38,7 +38,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/07/08/bugku-web/web4-2.png">
 <meta property="og:image" content="http://yoursite.com/2020/07/08/bugku-web/web4-3.png">
 <meta property="article:published_time" content="2020-07-08T15:56:10.518Z">
-<meta property="article:modified_time" content="2020-08-13T07:54:08.606Z">
+<meta property="article:modified_time" content="2020-08-16T07:21:13.565Z">
 <meta property="article:author" content="Seamiloak">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/2020/07/08/bugku-web/web2.png">
@@ -265,17 +265,17 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>持续更新中… 2020.07.24<br>展开全文有图片<br>1.web2 2020-7-9<br><img src="./web2.png" alt><br>查看源码之后一眼就能看到<br>flag：KEY{Web-2-bugKssNNikls9100}</p>
+    <p>持续更新中… 2020.07.24<br>展开全文有图片<br>1.web2 2020-7-9</p>
 <hr>
+<p><img src="./web2.png" alt><br>查看源码之后一眼就能看到<br>flag：KEY{Web-2-bugKssNNikls9100}</p>
 <a id="more"></a>
-<p>2.计算器 2020-7-9<br><img src="./%E8%AE%A1%E7%AE%97%E5%99%A8-1.png" alt><br>查看源码，图中所指限制了输入数字的个数，改成比计算结果大的数字就可以获得flag</p>
+
+
+<h2 id="2-计算器-2020-7-9"><a href="#2-计算器-2020-7-9" class="headerlink" title="2.计算器 2020-7-9"></a>2.计算器 2020-7-9</h2><p><img src="./%E8%AE%A1%E7%AE%97%E5%99%A8-1.png" alt><br>查看源码，图中所指限制了输入数字的个数，改成比计算结果大的数字就可以获得flag</p>
 <p><img src="./%E8%AE%A1%E7%AE%97%E5%99%A8-2.png" alt><br>flag：flag{CTF-bugku-0032}</p>
-<hr>
-<p>3.web基础$_GET 2020-7-9<br><img src="./web%E5%9F%BA%E7%A1%80$_GET.png" alt><br>因为$_GET传参时请求的参数是在url中的，专业术语就是，查询字符串（名称/值对）是在 GET 请求的 URL 中发送的，因此修改网址在其后面加上?what=flag，回车得到flag。<br>详情请阅读w3school的html表单部分<br>flag：flag{bugku_get_su8kej2en}</p>
-<hr>
-<p>4.web基础$_POST 2020-7-11<br><img src="./web%E5%9F%BA%E7%A1%80$_POST.png" alt><br>POST传值不同于GET传值，POST传值数据不会显示在 URL 中，也就是网址中，查询字符串（名称/值对）是在 POST 请求的 HTTP 消息主体中发送的，相对于GET传值是比较安全的，所以这里需要用到hackbar辅助传值，也就是下方的工具栏，在工具栏上方输入url，下方输入表达式，点击Execute按钮执行，值就会被传到服务器，服务器做出响应输出服务器中的参数，也就是这里的flag<br>flag：flag{bugku_get_ssseint67se}</p>
-<hr>
-<p>5.矛盾 2020-7-11<br><img src="./%E7%9F%9B%E7%9B%BE.png" alt><br>实际上是弱类型比较，第一个if判断中的is_numeric判断其中的参数是否是纯数字，如果是返回true，否则返回false，第二个if是弱类型判断，这里的函数具体是，当其中的参数等于1时会输出flag。<br>当两个不同类型的参数进行 ‘==’ 比较而非 ‘===’ 比较时，将会转换成相同类型进行比较。</p>
+<h2 id="3-web基础-GET-2020-7-9"><a href="#3-web基础-GET-2020-7-9" class="headerlink" title="3.web基础$_GET 2020-7-9"></a>3.web基础$_GET 2020-7-9</h2><p><img src="./web%E5%9F%BA%E7%A1%80$_GET.png" alt><br>因为$_GET传参时请求的参数是在url中的，专业术语就是，查询字符串（名称/值对）是在 GET 请求的 URL 中发送的，因此修改网址在其后面加上?what=flag，回车得到flag。<br>详情请阅读w3school的html表单部分<br>flag：flag{bugku_get_su8kej2en}</p>
+<h2 id="4-web基础-POST-2020-7-11"><a href="#4-web基础-POST-2020-7-11" class="headerlink" title="4.web基础$_POST 2020-7-11"></a>4.web基础$_POST 2020-7-11</h2><p><img src="./web%E5%9F%BA%E7%A1%80$_POST.png" alt><br>POST传值不同于GET传值，POST传值数据不会显示在 URL 中，也就是网址中，查询字符串（名称/值对）是在 POST 请求的 HTTP 消息主体中发送的，相对于GET传值是比较安全的，所以这里需要用到hackbar辅助传值，也就是下方的工具栏，在工具栏上方输入url，下方输入表达式，点击Execute按钮执行，值就会被传到服务器，服务器做出响应输出服务器中的参数，也就是这里的flag<br>flag：flag{bugku_get_ssseint67se}</p>
+<h2 id="5-矛盾-2020-7-11"><a href="#5-矛盾-2020-7-11" class="headerlink" title="5.矛盾 2020-7-11"></a>5.矛盾 2020-7-11</h2><p><img src="./%E7%9F%9B%E7%9B%BE.png" alt><br>实际上是弱类型比较，第一个if判断中的is_numeric判断其中的参数是否是纯数字，如果是返回true，否则返回false，第二个if是弱类型判断，这里的函数具体是，当其中的参数等于1时会输出flag。<br>当两个不同类型的参数进行 ‘==’ 比较而非 ‘===’ 比较时，将会转换成相同类型进行比较。</p>
 <ol>
 <li>var_dump(“admin”==0);  //true</li>
 <li>var_dump(“1admin”==1); //true</li>
@@ -283,22 +283,14 @@
 <li>var_dump(“admin1”==0) //true</li>
 <li>var_dump(“0e123456”==”0e4456789”); //true<br>由第1个和第2个可知，当第一个字符为数字，后面都是字符串或字符时，字符串或字符将会等同于0，整体等于第1个数字加上0，又因为题目具体要求为与 1 比较，所以这时候的GET参数构造就应该为 1xxxxx，xxxxx为任意字母。<br>flag：flag{bugku-789-ps-ssdf}</li>
 </ol>
-<hr>
-<p>6.web3 2020-7-11<br><img src="./web3-1.png" alt><br>查看源代码发现编码，结合unicode编码特点，确定为unicode编码<br>unicode一般有四种表示形式<br>1 &amp;#x [Hex]: &#x0054;&#x0068;&#x0065;<br>2 &amp;# [Decimal]: &#00084;&#00104;&#00101;<br>3 \U [Hex]: \U0054\U0068\U0065<br>4 \U+ [Hex]: \U+0054\U+0068\U+0065<br><img src="./web3-2.png" alt><br>flag：KEY{J2sa42ahJK-HS11III}</p>
-<hr>
-<p>7.域名解析 2020-7-17<br><img src="./%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90.png" alt><br>先了解hosts文件，Hosts是一个没有扩展名的系统文件，可以用记事本等工具打开，其作用就是将一些常用的网址域名与其对应的IP地址建立一个关联“数据库”，当用户在浏览器中输入一个需要登录的网址时，系统会首先自动从Hosts文件中寻找对应的IP地址，一旦找到，系统会立即打开对应网页，如果没有找到，则系统再会将网址提交DNS域名解析服务器进行IP地址的解析。简单来说就是关联域名和url，也可以说是等于。<br>flag：KEY{DSAHDSJ82HDS2211}</p>
-<hr>
-<p>8.你必须让他停下 2020-7-17<br><img src="./%E4%BD%A0%E5%BF%85%E9%A1%BB%E8%AE%A9%E4%BB%96%E5%81%9C%E4%B8%8B-1.png" alt><br><img src="./%E4%BD%A0%E5%BF%85%E9%A1%BB%E8%AE%A9%E4%BB%96%E5%81%9C%E4%B8%8B-2.png" alt><br>burpsuit抓包让他停下，有很多图片，应该是在第10张jpg里面，服务器响应代码里面有flag<br>flag：flag{dummy_game_1s_s0_popular}</p>
-<hr>
-<p>9.变量1 2020-7-17<br><img src="./%E5%8F%98%E9%87%8F1.png" alt><br>代码解释，先引用外部文件flag1.php，flag字符串包含在这个文件里面，isset() 函数用于检测变量是否已设置并且非 NULL，简单来说就是解释变量有没有赋值，有就true，没有false，进入if，GET赋值给args，第二份if判断有没有这些字符串，有就输出“args error！”然后退出，没有就继续下一行代码，var_dump函数就是输出变量的信息，其实就是输出变量里的东西，但是会多出来其他东西，而$$ 会导致两次变量转换，而恰好我们在url里输入的GLOBALS为全局变量，会输出这个程序里的所有全局变量，而外部文件引用要使用全局变量才能给别的文件使用，$args是字符串GLOBALS, $$args就是$GLOBALS，所以输出所有全局变量，其中就有包含flag字符串的全局变量。（其实你要是知道包含flag的全局变量也可以赋值给args，但是很显然不知道，所有用GLOBALS）<br>flag：flag{92853051ab894a64f7865cf3c2128b34}</p>
-<hr>
-<p>10.web5 2020-7-17<br><img src="./web5-1.png" alt><br><img src="./web5-2.png" alt><br>查看源码，这是js的一种编码，直接输入控制台就能解码了，网页控制台就是简单的js简单代码交流的，类似python的一条一条代码交流的那个。还有类似的那个emoji编码也可以这样弄。<br>flag：ctf{whatfk}</p>
-<hr>
-<p>11.头等舱 2020-7-17<br><img src="./%E5%A4%B4%E7%AD%89%E8%88%B1.png" alt><br>源码啥都没有，抓包藏在表单里<br>flag：flag{Bugku_k8_23s_istra}</p>
-<hr>
-<p>12.管理员系统 2020-7-17<br><img src="./%E7%AE%A1%E7%90%86%E5%91%98%E7%B3%BB%E7%BB%9F-1.png" alt><br><img src="./%E7%AE%A1%E7%90%86%E5%91%98%E7%B3%BB%E7%BB%9F-2.png" alt><br>简单的bp爆破，具体爆破方法直接百度<br>flag：flag{85ff2ee4171396724bae20c0bd851f6b}</p>
-<hr>
-<p>13.web4 2020-7-17<br><img src="./web4-1.png" alt><br>源码里有url编码，组合起来url解码<br><img src="./web4-2.png" alt><br>然后把 67d709b2b54aa2aa648cf6e87a7114f1 提交到浏览器中<br><img src="./web4-3.png" alt></p>
+<h2 id="6-web3-2020-7-11"><a href="#6-web3-2020-7-11" class="headerlink" title="6.web3 2020-7-11"></a>6.web3 2020-7-11</h2><p><img src="./web3-1.png" alt><br>查看源代码发现编码，结合unicode编码特点，确定为unicode编码<br>unicode一般有四种表示形式<br>1 &amp;#x [Hex]: &#x0054;&#x0068;&#x0065;<br>2 &amp;# [Decimal]: &#00084;&#00104;&#00101;<br>3 \U [Hex]: \U0054\U0068\U0065<br>4 \U+ [Hex]: \U+0054\U+0068\U+0065<br><img src="./web3-2.png" alt><br>flag：KEY{J2sa42ahJK-HS11III}</p>
+<h2 id="7-域名解析-2020-7-17"><a href="#7-域名解析-2020-7-17" class="headerlink" title="7.域名解析 2020-7-17"></a>7.域名解析 2020-7-17</h2><p><img src="./%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90.png" alt><br>先了解hosts文件，Hosts是一个没有扩展名的系统文件，可以用记事本等工具打开，其作用就是将一些常用的网址域名与其对应的IP地址建立一个关联“数据库”，当用户在浏览器中输入一个需要登录的网址时，系统会首先自动从Hosts文件中寻找对应的IP地址，一旦找到，系统会立即打开对应网页，如果没有找到，则系统再会将网址提交DNS域名解析服务器进行IP地址的解析。简单来说就是关联域名和url，也可以说是等于。<br>flag：KEY{DSAHDSJ82HDS2211}</p>
+<h2 id="8-你必须让他停下-2020-7-17"><a href="#8-你必须让他停下-2020-7-17" class="headerlink" title="8.你必须让他停下 2020-7-17"></a>8.你必须让他停下 2020-7-17</h2><p><img src="./%E4%BD%A0%E5%BF%85%E9%A1%BB%E8%AE%A9%E4%BB%96%E5%81%9C%E4%B8%8B-1.png" alt><br><img src="./%E4%BD%A0%E5%BF%85%E9%A1%BB%E8%AE%A9%E4%BB%96%E5%81%9C%E4%B8%8B-2.png" alt><br>burpsuit抓包让他停下，有很多图片，应该是在第10张jpg里面，服务器响应代码里面有flag<br>flag：flag{dummy_game_1s_s0_popular}</p>
+<h2 id="9-变量1-2020-7-17"><a href="#9-变量1-2020-7-17" class="headerlink" title="9.变量1 2020-7-17"></a>9.变量1 2020-7-17</h2><p><img src="./%E5%8F%98%E9%87%8F1.png" alt><br>代码解释，先引用外部文件flag1.php，flag字符串包含在这个文件里面，isset() 函数用于检测变量是否已设置并且非 NULL，简单来说就是解释变量有没有赋值，有就true，没有false，进入if，GET赋值给args，第二份if判断有没有这些字符串，有就输出“args error！”然后退出，没有就继续下一行代码，var_dump函数就是输出变量的信息，其实就是输出变量里的东西，但是会多出来其他东西，而$$ 会导致两次变量转换，而恰好我们在url里输入的GLOBALS为全局变量，会输出这个程序里的所有全局变量，而外部文件引用要使用全局变量才能给别的文件使用，$args是字符串GLOBALS, $$args就是$GLOBALS，所以输出所有全局变量，其中就有包含flag字符串的全局变量。（其实你要是知道包含flag的全局变量也可以赋值给args，但是很显然不知道，所有用GLOBALS）<br>flag：flag{92853051ab894a64f7865cf3c2128b34}</p>
+<h2 id="10-web5-2020-7-17"><a href="#10-web5-2020-7-17" class="headerlink" title="10.web5 2020-7-17"></a>10.web5 2020-7-17</h2><p><img src="./web5-1.png" alt><br><img src="./web5-2.png" alt><br>查看源码，这是js的一种编码，直接输入控制台就能解码了，网页控制台就是简单的js简单代码交流的，类似python的一条一条代码交流的那个。还有类似的那个emoji编码也可以这样弄。<br>flag：ctf{whatfk}</p>
+<h2 id="11-头等舱-2020-7-17"><a href="#11-头等舱-2020-7-17" class="headerlink" title="11.头等舱 2020-7-17"></a>11.头等舱 2020-7-17</h2><p><img src="./%E5%A4%B4%E7%AD%89%E8%88%B1.png" alt><br>源码啥都没有，抓包藏在表单里<br>flag：flag{Bugku_k8_23s_istra}</p>
+<h2 id="12-管理员系统-2020-7-17"><a href="#12-管理员系统-2020-7-17" class="headerlink" title="12.管理员系统 2020-7-17"></a>12.管理员系统 2020-7-17</h2><p><img src="./%E7%AE%A1%E7%90%86%E5%91%98%E7%B3%BB%E7%BB%9F-1.png" alt><br><img src="./%E7%AE%A1%E7%90%86%E5%91%98%E7%B3%BB%E7%BB%9F-2.png" alt><br>简单的bp爆破，具体爆破方法直接百度<br>flag：flag{85ff2ee4171396724bae20c0bd851f6b}</p>
+<h2 id="13-web4-2020-7-17"><a href="#13-web4-2020-7-17" class="headerlink" title="13.web4 2020-7-17"></a>13.web4 2020-7-17</h2><p><img src="./web4-1.png" alt><br>源码里有url编码，组合起来url解码<br><img src="./web4-2.png" alt><br>然后把 67d709b2b54aa2aa648cf6e87a7114f1 提交到浏览器中<br><img src="./web4-3.png" alt></p>
 
     
 
