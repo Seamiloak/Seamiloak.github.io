@@ -194,6 +194,93 @@
             
 
   
+    <article id="post-一句话木马原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/08/22/%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%9C%A8%E9%A9%AC%E5%8E%9F%E7%90%86/" target="_blank">一句话木马原理</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/08/22/%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%9C%A8%E9%A9%AC%E5%8E%9F%E7%90%86/" class="archive-article-date">
+        <time datetime="2020-08-22T14:28:18.447Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-22</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="Webshell-大马"><a href="#Webshell-大马" class="headerlink" title="Webshell(大马)"></a>Webshell(大马)</h1><p>我们经常会看到Webshell，那么，到底什么是Webshell呢？</p>
+<p>webshell就是以 asp、aspx、php、jsp 或者cgi等网页文件形式存在的一种命令执行环境，也可以将其称做为一种网页后门。黑客在入侵了一个网站后，通常会将asp、aspx、php或jsp后门文件与网站web服务器目录下正常的网页文件混在一起，然后就可以使用浏览器来访问该后门文件了，从而得到一个命令执行环境，以达到控制网站服务器的目的。</p>
+<p>顾名思义，“web”的含义是显然需要服务器开放web服务，“shell”的含义是取得对服务器某种程度上的操作权限。webshell常常被称为入侵者通过网站端口对网站服务器的某种程度上操作的权限。由于webshell其大多是以动态脚本的形式出现，也有人称之为网站的后门工具。</p>
+<p>一方面，webshell被站长常常用于网站管理、服务器管理等等，根据FSO权限的不同，作用有在线编辑网页脚本、上传下载文件、查看数据库、执行任意程序命令等。</p>
+<p>另一方面，被入侵者利用，从而达到控制网站服务器的目的。这些网页脚本常称为Web脚本木马，比较流行的asp或php木马，也有基于.NET的脚本木马与JSP脚本木马。</p>
+<p>但是这里所说的木马都是些体积“庞大”的木马，也就是黑客中常称呼的” 大马 “。</p>
+<h1 id="一句话木马"><a href="#一句话木马" class="headerlink" title="一句话木马"></a>一句话木马</h1><p>拿php的一句话木马说明一下原理：</p>
+<p>在PHP脚本语言中，eval(code) 的功能是将 code 组合成 php 指令，然后将指令执行，其他语言中也是使用此原理，只是函数可能不同。</p>
+<p><code>&lt;?php $a=&quot;phpinfo()&quot;; eval(&quot;$a;&quot;);?&gt;   #就相当于执行 phpinfo(); 语句。</code><br>当利用web中的漏洞将<code>&lt;?php @eval($_POST[value]);?&gt;</code> 一句话插入到了可以被黑客访问且能被web服务器执行的文件中时，那么我们就可以向此文件提交post数据，post方式提交数据的参数就是这个一句话中的 value，它就称为一句话木马的密码。这样提交的数据如果是正确的php语言的语句，那么就可以被一句话木马执行，从而达到黑客的恶意目的。</p>
+<p>介绍了一句话木马的原理后，我们再来说下它的优缺点：</p>
+<p>优点：短小精悍，功能强大。</p>
+<p>缺点：容易被安全软件检测出来。为了增强隐蔽性，也出现了各种一句话木马的变形。</p>
+<p>转自：<a href="https://blog.csdn.net/qq_36119192/article/details/84563791#%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%9C%A8%E9%A9%AC%E5%8E%9F%E7%90%86%C2%A0" target="_blank" rel="noopener">https://blog.csdn.net/qq_36119192/article/details/84563791#%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%9C%A8%E9%A9%AC%E5%8E%9F%E7%90%86%C2%A0</a></p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/08/22/%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%9C%A8%E9%A9%AC%E5%8E%9F%E7%90%86/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-程序保护机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -874,83 +961,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2020/08/04/sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-sql注入" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/07/30/sql%E6%B3%A8%E5%85%A5/" target="_blank">sql注入</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/07/30/sql%E6%B3%A8%E5%85%A5/" class="archive-article-date">
-        <time datetime="2020-07-30T08:28:53.190Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-30</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="一、Sql-注入漏洞详解"><a href="#一、Sql-注入漏洞详解" class="headerlink" title="一、Sql 注入漏洞详解"></a>一、Sql 注入漏洞详解</h1><h2 id="1-1-Sql-注入产生原因及威胁："><a href="#1-1-Sql-注入产生原因及威胁：" class="headerlink" title="1.1 Sql 注入产生原因及威胁："></a>1.1 Sql 注入产生原因及威胁：</h2><p>当我们访问动态网页时, Web 服务器会向数据访问层发起 Sql 查询请求，如果权限验证通过就会执行 Sql 语句。<br>这种网站内部直接发送的Sql请求一般不会有危险，但实际情况是很多时候需要结合用户的输入数据动态构造 Sql 语句，如果用户输入的数据被构造成恶意 Sql 代码，Web 应用又未对动态构造的 Sql 语句使用的参数进行审查，则会带来意想不到的危险。</p>
-<p>Sql 注入带来的威胁主要有如下几点：</p>
-<p>·猜解后台数据库，这是利用最多的方式，盗取网站的敏感信息。<br>·绕过认证，列如绕过验证登录网站后台。<br>·注入可以借助数据库的存储过程进行提权等操作</p>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/07/30/sql%E6%B3%A8%E5%85%A5/">展开全文 >></a>
     </p>
     
 

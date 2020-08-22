@@ -194,6 +194,83 @@
             
 
   
+    <article id="post-sql注入" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/07/30/sql%E6%B3%A8%E5%85%A5/" target="_blank">sql注入</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/07/30/sql%E6%B3%A8%E5%85%A5/" class="archive-article-date">
+        <time datetime="2020-07-30T08:28:53.190Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-30</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="一、Sql-注入漏洞详解"><a href="#一、Sql-注入漏洞详解" class="headerlink" title="一、Sql 注入漏洞详解"></a>一、Sql 注入漏洞详解</h1><h2 id="1-1-Sql-注入产生原因及威胁："><a href="#1-1-Sql-注入产生原因及威胁：" class="headerlink" title="1.1 Sql 注入产生原因及威胁："></a>1.1 Sql 注入产生原因及威胁：</h2><p>当我们访问动态网页时, Web 服务器会向数据访问层发起 Sql 查询请求，如果权限验证通过就会执行 Sql 语句。<br>这种网站内部直接发送的Sql请求一般不会有危险，但实际情况是很多时候需要结合用户的输入数据动态构造 Sql 语句，如果用户输入的数据被构造成恶意 Sql 代码，Web 应用又未对动态构造的 Sql 语句使用的参数进行审查，则会带来意想不到的危险。</p>
+<p>Sql 注入带来的威胁主要有如下几点：</p>
+<p>·猜解后台数据库，这是利用最多的方式，盗取网站的敏感信息。<br>·绕过认证，列如绕过验证登录网站后台。<br>·注入可以借助数据库的存储过程进行提权等操作</p>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/07/30/sql%E6%B3%A8%E5%85%A5/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-php filter的应用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
