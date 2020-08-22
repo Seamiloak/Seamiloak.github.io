@@ -194,6 +194,85 @@
             
 
   
+    <article id="post-程序保护机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/08/22/%E7%A8%8B%E5%BA%8F%E4%BF%9D%E6%8A%A4%E6%9C%BA%E5%88%B6/" target="_blank">程序保护机制</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/08/22/%E7%A8%8B%E5%BA%8F%E4%BF%9D%E6%8A%A4%E6%9C%BA%E5%88%B6/" class="archive-article-date">
+        <time datetime="2020-08-22T09:16:55.631Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-22</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="程序保护机制"><a href="#程序保护机制" class="headerlink" title="程序保护机制"></a>程序保护机制</h1><h2 id="1-NX"><a href="#1-NX" class="headerlink" title="1) NX:"></a>1) NX:</h2><p>数据执行保护，即DEP (Data Execution Prevention)，(non-executable memory)中执行指令。在80x86体系结构中，操作系统的内存管理是通过页面表(page table)存储方式来实现的，其最后一位就是NX位，0表示允许执行代码，1表示禁止执行代码。一般来说，NX主要是防止直接在 栈(stack) 和 堆(heap) 上运行shellcode代码。gcc默认开启不可执行栈功能，添加编译选项-z execstack即可开启栈可执行功能。</p>
+<h2 id="2-ASLR"><a href="#2-ASLR" class="headerlink" title="2)ASLR:"></a>2)ASLR:</h2><p>地址空间随机化，/proc/sys/kernel/randomize_va_space里的值可以控制系统级的ASLR，使用root权限可以进行修改，有三个值可以设置，具体说明如下。<br>    ·0：关闭ASLR。<br>    ·1：mmap base、stack、vdso page将随机化。这意味着”.so”文件将被加载到随机地址。链接时指定了-pie 选项的可执行程序，其代码段加载地址将被随机化。配置内核时如果指定了 CONFIG_COMPAT BRK，则 randomize_va_space 默认为1，此时heap没有随机化。<br>    ·2：在1的基础上增加了heap随机化。配置内核时如果禁用 CONFIG_COMPAT_BRK，则 randomize_va_space 默认为2。ASLR可以保证在每次程序加载的时候自身和所加载的库文件都会被映射到虚拟地址空间的不同地址处。</p>
+<h2 id="3-PIE"><a href="#3-PIE" class="headerlink" title="3) PIE:"></a>3) PIE:</h2><p>   代码段随机化，具体见ASLR。</p>
+<h2 id="4-RELRO"><a href="#4-RELRO" class="headerlink" title="4) RELRO:"></a>4) RELRO:</h2><p>   重定位，一般会分为两种情况， 即 partial relro 和 fullrelro，具体区别就是前者重定位信息(如got表)可写，而后者不可写。</p>
+<h2 id="5-STACK-CANARY"><a href="#5-STACK-CANARY" class="headerlink" title="5) STACK CANARY:"></a>5) STACK CANARY:</h2><p>   栈溢出保护，gcc编译程序默认开启，添加编译选项 <code>-fno-stack- protector</code> 会关闭程序的stack canary栈保护。</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/08/22/%E7%A8%8B%E5%BA%8F%E4%BF%9D%E6%8A%A4%E6%9C%BA%E5%88%B6/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-ping注入" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -901,82 +980,6 @@
 
 
   
-    <article id="post-php filter的应用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/07/17/php%20filter%E7%9A%84%E5%BA%94%E7%94%A8/" target="_blank">php filter的应用</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/07/17/php%20filter%E7%9A%84%E5%BA%94%E7%94%A8/" class="archive-article-date">
-        <time datetime="2020-07-17T07:23:52.688Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="本地文件包含漏洞和php伪协议"><a href="#本地文件包含漏洞和php伪协议" class="headerlink" title="本地文件包含漏洞和php伪协议"></a>本地文件包含漏洞和php伪协议</h1><h2 id="php-filter的应用："><a href="#php-filter的应用：" class="headerlink" title="php://filter的应用："></a>php://filter的应用：</h2><p>1、利用base64获得源码<br>2、通过读写编码实现绕过</p>
-<h2 id="php-filter是什么？"><a href="#php-filter是什么？" class="headerlink" title="php://filter是什么？"></a>php://filter是什么？</h2><p>php://filter是什么：<br>php中独有的一个协议，可以作为一个中间流来处理其他流，可以进行任意文件的读取。</p>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/07/17/php%20filter%E7%9A%84%E5%BA%94%E7%94%A8/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1271,56 +1274,6 @@
   
   <!-- <script async type="text/javascript" size="90" alpha="0.2" zIndex="0" src="/plugins/ribbon.js/ribbon.min.js"></script> -->
   
-  
-    <script type="text/javascript" src="/plugins/live2d-widget.js/L2Dwidget.min.js"></script>
-<script type="text/javascript">
-  /**
-   * 完整配置请参考：https://l2dwidget.js.org/docs/class/src/index.js~L2Dwidget.html#instance-method-init
-   */
-  var pluginModelPath = "assets/", // 模型的文件路径，无需更改
-    pluginRootPath = "/live2d_models/"; // 插件的路径，无需更改
-  //特定的模型json文件名称
-  var modelPathJson = {
-    "epsilon2_1": "Epsilon2.1",
-    "gf": "Gantzert_Felixander",
-    "haru/01": "haru01",
-    "haru/02": "haru02",
-    "nietzsche": "nietzche"
-  }
-
-  
-    var modelName = "hibiki";
-  
-
-  var modelJsonPath = "";
-  if (modelPathJson[modelName]) {
-    modelJsonPath = pluginRootPath + modelName + "/" + pluginModelPath + modelPathJson[modelName] +
-      ".model.json";
-  } else {
-    modelJsonPath = pluginRootPath + modelName + "/" + pluginModelPath + modelName + ".model.json";
-  }
-  L2Dwidget.init({
-    model: {
-      jsonPath: modelJsonPath
-    },
-    display: {
-       position: "right", 
-       width: 145, 
-       height: 315, 
-       hOffset: 50, 
-      
-    },
-    mobile: {
-       show: false, 
-       scale: 0.6 
-    },
-    react: {
-       opacity: 0.8 
-    }
-  })
-
-</script>
-
   
   
 </body>

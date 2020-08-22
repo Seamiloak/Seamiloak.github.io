@@ -6,32 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>sql注入 | 一颗小柠檬</title>
+  <title>程序保护机制 | 一颗小柠檬</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="一、Sql 注入漏洞详解1.1 Sql 注入产生原因及威胁：当我们访问动态网页时, Web 服务器会向数据访问层发起 Sql 查询请求，如果权限验证通过就会执行 Sql 语句。这种网站内部直接发送的Sql请求一般不会有危险，但实际情况是很多时候需要结合用户的输入数据动态构造 Sql 语句，如果用户输入的数据被构造成恶意 Sql 代码，Web 应用又未对动态构造的 Sql 语句使用的参数进行审查，则">
+  <meta name="description" content="程序保护机制1) NX:数据执行保护，即DEP (Data Execution Prevention)，(non-executable memory)中执行指令。在80x86体系结构中，操作系统的内存管理是通过页面表(page table)存储方式来实现的，其最后一位就是NX位，0表示允许执行代码，1表示禁止执行代码。一般来说，NX主要是防止直接在 栈(stack) 和 堆(heap) 上运行sh">
 <meta property="og:type" content="article">
-<meta property="og:title" content="sql注入">
-<meta property="og:url" content="http://yoursite.com/2020/07/30/sql%E6%B3%A8%E5%85%A5/index.html">
+<meta property="og:title" content="程序保护机制">
+<meta property="og:url" content="http://yoursite.com/2020/08/22/%E7%A8%8B%E5%BA%8F%E4%BF%9D%E6%8A%A4%E6%9C%BA%E5%88%B6/index.html">
 <meta property="og:site_name" content="一颗小柠檬">
-<meta property="og:description" content="一、Sql 注入漏洞详解1.1 Sql 注入产生原因及威胁：当我们访问动态网页时, Web 服务器会向数据访问层发起 Sql 查询请求，如果权限验证通过就会执行 Sql 语句。这种网站内部直接发送的Sql请求一般不会有危险，但实际情况是很多时候需要结合用户的输入数据动态构造 Sql 语句，如果用户输入的数据被构造成恶意 Sql 代码，Web 应用又未对动态构造的 Sql 语句使用的参数进行审查，则">
+<meta property="og:description" content="程序保护机制1) NX:数据执行保护，即DEP (Data Execution Prevention)，(non-executable memory)中执行指令。在80x86体系结构中，操作系统的内存管理是通过页面表(page table)存储方式来实现的，其最后一位就是NX位，0表示允许执行代码，1表示禁止执行代码。一般来说，NX主要是防止直接在 栈(stack) 和 堆(heap) 上运行sh">
 <meta property="og:locale" content="cn">
-<meta property="og:image" content="http://yoursite.com/2020/07/30/sql%E6%B3%A8%E5%85%A5/sql%E6%B3%A8%E5%85%A5-1.jpg">
-<meta property="og:image" content="http://yoursite.com/2020/07/30/sql%E6%B3%A8%E5%85%A5/sql%E6%B3%A8%E5%85%A5-2.jpg">
-<meta property="og:image" content="http://yoursite.com/2020/07/30/sql%E6%B3%A8%E5%85%A5/sql%E6%B3%A8%E5%85%A5-3.jpg">
-<meta property="og:image" content="http://yoursite.com/2020/07/30/sql%E6%B3%A8%E5%85%A5/sql%E6%B3%A8%E5%85%A5-4.jpg">
-<meta property="og:image" content="http://yoursite.com/2020/07/30/sql%E6%B3%A8%E5%85%A5/sql%E6%B3%A8%E5%85%A5-5.jpg">
-<meta property="og:image" content="http://yoursite.com/2020/07/30/sql%E6%B3%A8%E5%85%A5/sql%E6%B3%A8%E5%85%A5-6.jpg">
-<meta property="og:image" content="http://yoursite.com/2020/07/30/sql%E6%B3%A8%E5%85%A5/sql%E6%B3%A8%E5%85%A5-7.jpg">
-<meta property="og:image" content="http://yoursite.com/2020/07/30/sql%E6%B3%A8%E5%85%A5/sql%E6%B3%A8%E5%85%A5-8.jpg">
-<meta property="og:image" content="http://yoursite.com/2020/07/30/sql%E6%B3%A8%E5%85%A5/sql%E6%B3%A8%E5%85%A5-10.jpg">
-<meta property="og:image" content="http://yoursite.com/2020/07/30/sql%E6%B3%A8%E5%85%A5/sql%E6%B3%A8%E5%85%A5-11.jpg">
-<meta property="article:published_time" content="2020-07-30T08:28:53.190Z">
-<meta property="article:modified_time" content="2020-08-13T07:49:05.244Z">
+<meta property="article:published_time" content="2020-08-22T09:16:55.631Z">
+<meta property="article:modified_time" content="2020-08-22T09:26:49.625Z">
 <meta property="article:author" content="Seamiloak">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/07/30/sql%E6%B3%A8%E5%85%A5/sql%E6%B3%A8%E5%85%A5-1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="一颗小柠檬" type="application/atom+xml">
   
@@ -202,14 +191,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-sql注入" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-程序保护机制" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      sql注入
+      程序保护机制
     </h1>
   
 
@@ -221,8 +210,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/07/30/sql%E6%B3%A8%E5%85%A5/" class="archive-article-date">
-        <time datetime="2020-07-30T08:28:53.190Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-30</time>
+<a href="/2020/08/22/%E7%A8%8B%E5%BA%8F%E4%BF%9D%E6%8A%A4%E6%9C%BA%E5%88%B6/" class="archive-article-date">
+        <time datetime="2020-08-22T09:16:55.631Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-22</time>
 </a>
 
   
@@ -235,7 +224,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1.3k字</span>
+      <span class="post-count">437字</span>
     </span>
   </span>
 
@@ -244,7 +233,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">4分</span>
+      <span class="post-count">1分</span>
     </span>
   </span>
 </div>
@@ -255,23 +244,11 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="一、Sql-注入漏洞详解"><a href="#一、Sql-注入漏洞详解" class="headerlink" title="一、Sql 注入漏洞详解"></a>一、Sql 注入漏洞详解</h1><h2 id="1-1-Sql-注入产生原因及威胁："><a href="#1-1-Sql-注入产生原因及威胁：" class="headerlink" title="1.1 Sql 注入产生原因及威胁："></a>1.1 Sql 注入产生原因及威胁：</h2><p>当我们访问动态网页时, Web 服务器会向数据访问层发起 Sql 查询请求，如果权限验证通过就会执行 Sql 语句。<br>这种网站内部直接发送的Sql请求一般不会有危险，但实际情况是很多时候需要结合用户的输入数据动态构造 Sql 语句，如果用户输入的数据被构造成恶意 Sql 代码，Web 应用又未对动态构造的 Sql 语句使用的参数进行审查，则会带来意想不到的危险。</p>
-<p>Sql 注入带来的威胁主要有如下几点：</p>
-<p>·猜解后台数据库，这是利用最多的方式，盗取网站的敏感信息。<br>·绕过认证，列如绕过验证登录网站后台。<br>·注入可以借助数据库的存储过程进行提权等操作</p>
-<a id="more"></a>
-<h2 id="1-2-Sql-注入示例一-猜解数据库"><a href="#1-2-Sql-注入示例一-猜解数据库" class="headerlink" title="1.2 Sql 注入示例一.猜解数据库"></a>1.2 Sql 注入示例一.猜解数据库</h2><p>接下来我们通过一个实例，让你更加清楚的理解 Sql 注入猜解数据库是如何发生的。<br>使用DVWA渗透测试平台，作为攻击测试的目标：<br><img src="./sql%E6%B3%A8%E5%85%A5-1.jpg" alt><br>先输入 1 ，查看回显 (URL中ID=1，说明php页面通过get方法传递参数)：<br><img src="./sql%E6%B3%A8%E5%85%A5-2.jpg" alt><br>那实际上后台执行了什么样的Sql语句呢？点击<code>view source</code>查看源代码 ，其中的SQL查询代码为：<br><img src="./sql%E6%B3%A8%E5%85%A5-3.jpg" alt><br>可以看到，实际执行的Sql语句是：<br><code>SELECT first_name, last_name FROM users WHERE user_id = &#39;1&#39;;</code><br>我们是通过控制参数Id的值来返回我们需要的信息。<br>如果我们不按常理出牌，比如在输入框中输入 <code>1&#39; order by 1#</code><br>实际执行的Sql语句就会变成:<br><code>SELECT first_name, last_name FROM users WHERE user_id = &#39;1&#39; order by 1#`;(按照Mysql语法，#后面会被注释掉，使用这种方法屏蔽掉后面的单引号，避免语法错误)</code><br>这条语句的意思是查询users表中user_id为1的数据并按第一字段排行。</p>
-<p>输入 <code>1&#39; order by 1#</code>和 <code>1&#39; order by 2#</code>时都返回正常：<br><img src="./sql%E6%B3%A8%E5%85%A5-4.jpg" alt><br><img src="./sql%E6%B3%A8%E5%85%A5-5.jpg" alt><br>当输入 <code>1&#39; order by 3#</code>时，返回错误：<br><img src="./sql%E6%B3%A8%E5%85%A5-6.jpg" alt><br>由此可知，users表中只有两个字段，数据为两列。</p>
-<p>接下来我们使用 <code>union select</code> 联合查询继续获取信息。<br>union 运算符可以将两个或两个以上 select 语句的查询结果集合合并成一个结果集合显示，即执行联合查询。需要注意在使用 union 查询的时候需要和主查询的列数相同，而我们之前已经知道了主查询列数为 2，接下来就好办了。<br>输入<code>1&#39; union select database(),user()#</code> 进行查询 ：</p>
-<p>·database()将会返回当前网站所使用的数据库名字.<br>·user()将会返回执行当前查询的用户名.</p>
-<p>实际执行的Sql语句是:<br><code>SELECT first_name, last_name FROM users WHERE user_id = &#39;1&#39; union select database(),user()#`;</code><br><img src="./sql%E6%B3%A8%E5%85%A5-7.jpg" alt><br>通过上图返回信息，我们成功获取到：</p>
-<p>当前网站使用数据库为 dvwa .<br>当前执行查询用户名为 root@localhost .<br>同理我们再输入 <code>1&#39; union select version(),@@version_compile_os#</code>进行查询：</p>
-<p>version() 获取当前数据库版本.<br>@@version_compile_os 获取当前操作系统。<br>实际执行的Sql语句是:<br><code>SELECT first_name, last_name FROM users WHERE user_id = &#39;1&#39; union select version(),@@version_compile_os#`;</code><br><img src="./sql%E6%B3%A8%E5%85%A5-8.jpg" alt><br>通过上图返回信息，我们又成功获取到：</p>
-<p>·当前数据库版本为 : 5.6.31-0ubuntu0.15.10.1.<br>·当前操作系统为 : debian-linux-gnu</p>
-<p>接下来我们尝试获取 dvwa 数据库中的表名。<br><code>information_schema</code> 是 mysql 自带的一张表，这张数据表保存了 Mysql 服务器所有数据库的信息,如数据库名，数据库的表，表栏的数据类型与访问权限等。该数据库拥有一个名为 tables 的数据表，该表包含两个字段 table_name 和 table_schema，分别记录 DBMS 中的存储的表名和表名所在的数据库。</p>
-<p>我们输入<code>1&#39; union select table_name,table_schema from information_schema.tables where table_schema= &#39;dvwa&#39;#</code>进行查询：<br>实际执行的Sql语句是：</p>
-<p><code>SELECT first_name, last_name FROM users WHERE user_id = &#39;1&#39; union select table_name,table_schema from information_schema.tables where table_schema= &#39;dvwa&#39;#`;</code><br><img src="./sql%E6%B3%A8%E5%85%A5-10.jpg" alt><br>通过上图返回信息，我们再获取到：</p>
-<p>·dvwa 数据库有两个数据表，分别是 guestbook 和 users .<br>有些同学肯定还不满足目前获取到的信息，那么我们接下来尝试获取重量级的用户名、密码。<br>由经验我们可以大胆猜测users表的字段为 user 和 password ，所以输入：<code>1&#39; union select user,password from users#</code>进行查询：<br>实际执行的 Sql 语句是：<br><code>SELECT first_name, last_name FROM users WHERE user_id = &#39;1&#39; union select user,password from users#`;</code><br><img src="./sql%E6%B3%A8%E5%85%A5-11.jpg" alt><br>可以看到成功爆出用户名、密码，密码采用 md5 进行加密，可以到<code>www.cmd5.com</code>进行解密。<br>直此，同学们应该已经对 Sql 注入有了一个大概得了解，也清楚了 Sql 注入的强大。</p>
-<p>转自：<a href="https://www.jianshu.com/p/078df7a35671" target="_blank" rel="noopener">简书-Jewel591-sql注入基础原理（超详细）</a></p>
+    <h1 id="程序保护机制"><a href="#程序保护机制" class="headerlink" title="程序保护机制"></a>程序保护机制</h1><h2 id="1-NX"><a href="#1-NX" class="headerlink" title="1) NX:"></a>1) NX:</h2><p>数据执行保护，即DEP (Data Execution Prevention)，(non-executable memory)中执行指令。在80x86体系结构中，操作系统的内存管理是通过页面表(page table)存储方式来实现的，其最后一位就是NX位，0表示允许执行代码，1表示禁止执行代码。一般来说，NX主要是防止直接在 栈(stack) 和 堆(heap) 上运行shellcode代码。gcc默认开启不可执行栈功能，添加编译选项-z execstack即可开启栈可执行功能。</p>
+<h2 id="2-ASLR"><a href="#2-ASLR" class="headerlink" title="2)ASLR:"></a>2)ASLR:</h2><p>地址空间随机化，/proc/sys/kernel/randomize_va_space里的值可以控制系统级的ASLR，使用root权限可以进行修改，有三个值可以设置，具体说明如下。<br>    ·0：关闭ASLR。<br>    ·1：mmap base、stack、vdso page将随机化。这意味着”.so”文件将被加载到随机地址。链接时指定了-pie 选项的可执行程序，其代码段加载地址将被随机化。配置内核时如果指定了 CONFIG_COMPAT BRK，则 randomize_va_space 默认为1，此时heap没有随机化。<br>    ·2：在1的基础上增加了heap随机化。配置内核时如果禁用 CONFIG_COMPAT_BRK，则 randomize_va_space 默认为2。ASLR可以保证在每次程序加载的时候自身和所加载的库文件都会被映射到虚拟地址空间的不同地址处。</p>
+<h2 id="3-PIE"><a href="#3-PIE" class="headerlink" title="3) PIE:"></a>3) PIE:</h2><p>   代码段随机化，具体见ASLR。</p>
+<h2 id="4-RELRO"><a href="#4-RELRO" class="headerlink" title="4) RELRO:"></a>4) RELRO:</h2><p>   重定位，一般会分为两种情况， 即 partial relro 和 fullrelro，具体区别就是前者重定位信息(如got表)可写，而后者不可写。</p>
+<h2 id="5-STACK-CANARY"><a href="#5-STACK-CANARY" class="headerlink" title="5) STACK CANARY:"></a>5) STACK CANARY:</h2><p>   栈溢出保护，gcc编译程序默认开启，添加编译选项 <code>-fno-stack- protector</code> 会关闭程序的stack canary栈保护。</p>
 
     
 
@@ -308,7 +285,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://yoursite.com/2020/07/30/sql注入/" title="sql注入" target="_blank">http://yoursite.com/2020/07/30/sql注入/</a>
+          <a href="http://yoursite.com/2020/08/22/程序保护机制/" title="程序保护机制" target="_blank">http://yoursite.com/2020/08/22/程序保护机制/</a>
         </li>
         
         <li>
@@ -375,7 +352,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/30/sql%E6%B3%A8%E5%85%A5/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/08/22/%E7%A8%8B%E5%BA%8F%E4%BF%9D%E6%8A%A4%E6%9C%BA%E5%88%B6/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -390,18 +367,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2020/08/04/sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          sql注入-堆叠注入
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/07/17/php%20filter%E7%9A%84%E5%BA%94%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">php filter的应用</div>
+    <a href="/2020/08/16/ping%E6%B3%A8%E5%85%A5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ping注入</div>
       <i class="icon-circle-right"></i>
     </a>
   
