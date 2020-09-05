@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | 一颗小柠檬</title>
+  <title>web序列化与反序列化 | 一颗小柠檬</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="一颗小柠檬">
-<meta property="og:url" content="http://yoursite.com/archives/2020/page/2/index.html">
+  <meta name="description" content="序列化与反序列化定义序列化（串行化）：是将变量转换为可保存或传输的字符串的过程； 反序列化（反串行化）：就是在适当的时候把这个字符串再转化成原来的变量使用。 这两个过程结合起来，可以轻松地存储和传输数据，使程序更具维护性。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="web序列化与反序列化">
+<meta property="og:url" content="http://yoursite.com/2020/09/05/web%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/index.html">
 <meta property="og:site_name" content="一颗小柠檬">
+<meta property="og:description" content="序列化与反序列化定义序列化（串行化）：是将变量转换为可保存或传输的字符串的过程； 反序列化（反串行化）：就是在适当的时候把这个字符串再转化成原来的变量使用。 这两个过程结合起来，可以轻松地存储和传输数据，使程序更具维护性。">
 <meta property="og:locale" content="cn">
+<meta property="article:published_time" content="2020-09-05T15:41:19.406Z">
+<meta property="article:modified_time" content="2020-09-05T15:47:36.903Z">
 <meta property="article:author" content="Seamiloak">
 <meta name="twitter:card" content="summary">
   
@@ -187,346 +191,232 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-web序列化与反序列化" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/08/buuctf-web/" class="archive-article-date">
-        <time datetime="2020-08-08T15:47:27.473Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-08</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/08/08/buuctf-web/" target="_blank">buuctf-web</a>
   
+    <h1 class="article-title" itemprop="name">
+      web序列化与反序列化
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/04/MySQL-show%E8%AF%AD%E6%B3%95/" class="archive-article-date">
-        <time datetime="2020-08-04T06:25:50.083Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-04</time>
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2020/09/05/web%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" class="archive-article-date">
+        <time datetime="2020-09-05T15:41:19.406Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-05</time>
 </a>
 
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">345字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">1分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="序列化与反序列化"><a href="#序列化与反序列化" class="headerlink" title="序列化与反序列化"></a>序列化与反序列化</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><strong>序列化（串行化）：</strong><br>是将变量转换为可保存或传输的字符串的过程；</p>
+<p><strong>反序列化（反串行化）：</strong><br>就是在适当的时候把这个字符串再转化成原来的变量使用。</p>
+<p>这两个过程结合起来，可以轻松地存储和传输数据，使程序更具维护性。</p>
+<a id="more"></a>
+<h2 id="常见函数"><a href="#常见函数" class="headerlink" title="常见函数"></a>常见函数</h2><p>常见的php系列化和反系列化方式主要有：serialize，unserialize；json_encode，json_decode</p>
+<ol>
+<li><p>serialize和unserialize函数<br>这两个是序列化和反序列化PHP中数据的常用函数。</p>
+</li>
+<li><p>json_encode 和 json_decode<br>使用JSON格式序列化和反序列化是一个不错的选择：<br>使用json_encode和json_decode格式输出要serialize和unserialize格式快得多。<br>JSON格式是可读的。<br>JSON格式比serialize返回数据结果小。<br>JSON格式是开放的、可移植的。其他语言也可以使用它</p>
+</li>
+<li><p>var_export 和 eval<br>var_export 函数把变量作为一个字符串输出；eval把字符串当成PHP代码来执行，反序列化得到最初变量的内容。</p>
+</li>
+<li><p>wddx_serialize_value 和 wddx deserialize<br>wddx_serialize_value函数可以序列化数组变量，并以XML字符串形式输出</p>
+</li>
+<li><p>file_put_contents() 函数把一个字符串写入文件中</p>
+<p>file_get_contents() 把整个文件读入一个字符串中。</p>
+</li>
+</ol>
+<p>该函数是用于把文件的内容读入到一个字符串中的首选方法</p>
+<!--转自：https://blog.csdn.net/vhkjhwbs/article/details/90341474-->
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  
+                </div>
+              </span>
+            </span>
+          </span>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/08/04/MySQL-show%E8%AF%AD%E6%B3%95/" target="_blank">MySQL-show语法</a>
-  
-    </h1>
-  
+      </a>
+    </div>
+    
 
-
-        <div class="article-info info-on-right">
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          Seamiloak
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://yoursite.com/2020/09/05/web序列化与反序列化/" title="web序列化与反序列化" target="_blank">http://yoursite.com/2020/09/05/web序列化与反序列化/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
-          
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
 
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/09/05/web%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/04/sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/" class="archive-article-date">
-        <time datetime="2020-08-04T05:43:58.825Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-04</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/09/05/preg-match%E7%BB%95%E8%BF%87/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">preg-match绕过</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/08/04/sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/" target="_blank">sql注入-堆叠注入</a>
-  
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/30/sql%E6%B3%A8%E5%85%A5/" class="archive-article-date">
-        <time datetime="2020-07-30T08:28:53.190Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-30</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/07/30/sql%E6%B3%A8%E5%85%A5/" target="_blank">sql注入</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/17/php%20filter%E7%9A%84%E5%BA%94%E7%94%A8/" class="archive-article-date">
-        <time datetime="2020-07-17T07:23:52.688Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-17</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/07/17/php%20filter%E7%9A%84%E5%BA%94%E7%94%A8/" target="_blank">php filter的应用</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/08/bugku-web/" class="archive-article-date">
-        <time datetime="2020-07-08T15:56:10.518Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-08</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/07/08/bugku-web/" target="_blank">bugku-web</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/08/%E7%BC%96%E7%A0%81%E5%A4%A7%E5%85%A8/" class="archive-article-date">
-        <time datetime="2020-07-08T11:22:41.348Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-08</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/07/08/%E7%BC%96%E7%A0%81%E5%A4%A7%E5%85%A8/" target="_blank">编码大全</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/08/TCP-IP%E5%8D%8F%E8%AE%AE/" class="archive-article-date">
-        <time datetime="2020-07-08T06:48:48.160Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-08</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/07/08/TCP-IP%E5%8D%8F%E8%AE%AE/" target="_blank">TCP-IP协议</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/02/03/C++%E7%9F%A9%E9%98%B5%E5%8A%A0%E6%B3%95/" class="archive-article-date">
-        <time datetime="2020-02-03T05:53:12.776Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-03</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/02/03/C++%E7%9F%A9%E9%98%B5%E5%8A%A0%E6%B3%95/" target="_blank">C++矩阵加法</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/01/29/C++%E6%95%B0%E7%BB%84%E6%9F%A5%E6%89%BE%E5%8F%8A%E6%9B%BF%E6%8D%A2/" class="archive-article-date">
-        <time datetime="2020-01-29T15:33:52.843Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-29</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/01/29/C++%E6%95%B0%E7%BB%84%E6%9F%A5%E6%89%BE%E5%8F%8A%E6%9B%BF%E6%8D%A2/" target="_blank">C++数组查找及替换</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2020/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2020/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2020/page/3/">3</a><a class="extend next" rel="next" href="/archives/2020/page/3/">Next &amp;raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -567,8 +457,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

