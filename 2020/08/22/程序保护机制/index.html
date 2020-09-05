@@ -18,7 +18,7 @@
 <meta property="og:description" content="程序保护机制1) NX:数据执行保护，即DEP (Data Execution Prevention)，(non-executable memory)中执行指令。在80x86体系结构中，操作系统的内存管理是通过页面表(page table)存储方式来实现的，其最后一位就是NX位，0表示允许执行代码，1表示禁止执行代码。一般来说，NX主要是防止直接在 栈(stack) 和 堆(heap) 上运行sh">
 <meta property="og:locale" content="cn">
 <meta property="article:published_time" content="2020-08-22T09:16:55.631Z">
-<meta property="article:modified_time" content="2020-08-22T09:26:49.625Z">
+<meta property="article:modified_time" content="2020-09-05T13:52:21.370Z">
 <meta property="article:author" content="Seamiloak">
 <meta name="twitter:card" content="summary">
   
@@ -245,6 +245,7 @@
   <div class="article-entry" itemprop="articleBody">
     
     <h1 id="程序保护机制"><a href="#程序保护机制" class="headerlink" title="程序保护机制"></a>程序保护机制</h1><h2 id="1-NX"><a href="#1-NX" class="headerlink" title="1) NX:"></a>1) NX:</h2><p>数据执行保护，即DEP (Data Execution Prevention)，(non-executable memory)中执行指令。在80x86体系结构中，操作系统的内存管理是通过页面表(page table)存储方式来实现的，其最后一位就是NX位，0表示允许执行代码，1表示禁止执行代码。一般来说，NX主要是防止直接在 栈(stack) 和 堆(heap) 上运行shellcode代码。gcc默认开启不可执行栈功能，添加编译选项-z execstack即可开启栈可执行功能。</p>
+<a id="more"></a>
 <h2 id="2-ASLR"><a href="#2-ASLR" class="headerlink" title="2)ASLR:"></a>2)ASLR:</h2><p>地址空间随机化，/proc/sys/kernel/randomize_va_space里的值可以控制系统级的ASLR，使用root权限可以进行修改，有三个值可以设置，具体说明如下。<br>    ·0：关闭ASLR。<br>    ·1：mmap base、stack、vdso page将随机化。这意味着”.so”文件将被加载到随机地址。链接时指定了-pie 选项的可执行程序，其代码段加载地址将被随机化。配置内核时如果指定了 CONFIG_COMPAT BRK，则 randomize_va_space 默认为1，此时heap没有随机化。<br>    ·2：在1的基础上增加了heap随机化。配置内核时如果禁用 CONFIG_COMPAT_BRK，则 randomize_va_space 默认为2。ASLR可以保证在每次程序加载的时候自身和所加载的库文件都会被映射到虚拟地址空间的不同地址处。</p>
 <h2 id="3-PIE"><a href="#3-PIE" class="headerlink" title="3) PIE:"></a>3) PIE:</h2><p>   代码段随机化，具体见ASLR。</p>
 <h2 id="4-RELRO"><a href="#4-RELRO" class="headerlink" title="4) RELRO:"></a>4) RELRO:</h2><p>   重定位，一般会分为两种情况， 即 partial relro 和 fullrelro，具体区别就是前者重定位信息(如got表)可写，而后者不可写。</p>

@@ -194,6 +194,81 @@
             
 
   
+    <article id="post-Steghide使用教程及其密码爆破" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/08/24/Steghide%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E5%8F%8A%E5%85%B6%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4/" target="_blank">Steghide使用教程及其密码爆破</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/08/24/Steghide%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E5%8F%8A%E5%85%B6%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4/" class="archive-article-date">
+        <time datetime="2020-08-24T07:20:20.865Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-24</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="Steghide使用教程及其密码爆破"><a href="#Steghide使用教程及其密码爆破" class="headerlink" title="Steghide使用教程及其密码爆破"></a>Steghide使用教程及其密码爆破</h1><h2 id="工具介绍"><a href="#工具介绍" class="headerlink" title="工具介绍"></a>工具介绍</h2><p>Steghide是一款开源的隐写术软件，它可以让你在一张图片或者音频文件中隐藏你的秘密信息，而且你不会注意到图片或音频文件发生了任何的改变。而且，你的秘密文件已经隐藏在了原始图片或音频文件之中了。这是一个命令行软件。因此，你需要学习使用这个工具的命令。你需要通过命令来实现将秘密文件嵌入至图片或音频文件之中。除此之外，你还需要使用其他的命令来提取你隐藏在图片或音频中的秘密文件。</p>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/08/24/Steghide%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E5%8F%8A%E5%85%B6%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-一句话木马原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -225,18 +300,7 @@
     
     <h1 id="Webshell-大马"><a href="#Webshell-大马" class="headerlink" title="Webshell(大马)"></a>Webshell(大马)</h1><p>我们经常会看到Webshell，那么，到底什么是Webshell呢？</p>
 <p>webshell就是以 asp、aspx、php、jsp 或者cgi等网页文件形式存在的一种命令执行环境，也可以将其称做为一种网页后门。黑客在入侵了一个网站后，通常会将asp、aspx、php或jsp后门文件与网站web服务器目录下正常的网页文件混在一起，然后就可以使用浏览器来访问该后门文件了，从而得到一个命令执行环境，以达到控制网站服务器的目的。</p>
-<p>顾名思义，“web”的含义是显然需要服务器开放web服务，“shell”的含义是取得对服务器某种程度上的操作权限。webshell常常被称为入侵者通过网站端口对网站服务器的某种程度上操作的权限。由于webshell其大多是以动态脚本的形式出现，也有人称之为网站的后门工具。</p>
-<p>一方面，webshell被站长常常用于网站管理、服务器管理等等，根据FSO权限的不同，作用有在线编辑网页脚本、上传下载文件、查看数据库、执行任意程序命令等。</p>
-<p>另一方面，被入侵者利用，从而达到控制网站服务器的目的。这些网页脚本常称为Web脚本木马，比较流行的asp或php木马，也有基于.NET的脚本木马与JSP脚本木马。</p>
-<p>但是这里所说的木马都是些体积“庞大”的木马，也就是黑客中常称呼的” 大马 “。</p>
-<h1 id="一句话木马"><a href="#一句话木马" class="headerlink" title="一句话木马"></a>一句话木马</h1><p>拿php的一句话木马说明一下原理：</p>
-<p>在PHP脚本语言中，eval(code) 的功能是将 code 组合成 php 指令，然后将指令执行，其他语言中也是使用此原理，只是函数可能不同。</p>
-<p><code>&lt;?php $a=&quot;phpinfo()&quot;; eval(&quot;$a;&quot;);?&gt;   #就相当于执行 phpinfo(); 语句。</code><br>当利用web中的漏洞将<code>&lt;?php @eval($_POST[value]);?&gt;</code> 一句话插入到了可以被黑客访问且能被web服务器执行的文件中时，那么我们就可以向此文件提交post数据，post方式提交数据的参数就是这个一句话中的 value，它就称为一句话木马的密码。这样提交的数据如果是正确的php语言的语句，那么就可以被一句话木马执行，从而达到黑客的恶意目的。</p>
-<p>介绍了一句话木马的原理后，我们再来说下它的优缺点：</p>
-<p>优点：短小精悍，功能强大。</p>
-<p>缺点：容易被安全软件检测出来。为了增强隐蔽性，也出现了各种一句话木马的变形。</p>
-<p>转自：<a href="https://blog.csdn.net/qq_36119192/article/details/84563791#%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%9C%A8%E9%A9%AC%E5%8E%9F%E7%90%86%C2%A0" target="_blank" rel="noopener">https://blog.csdn.net/qq_36119192/article/details/84563791#%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%9C%A8%E9%A9%AC%E5%8E%9F%E7%90%86%C2%A0</a></p>
-
+    
     
 
     
@@ -311,11 +375,7 @@
   <div class="article-entry" itemprop="articleBody">
     
     <h1 id="程序保护机制"><a href="#程序保护机制" class="headerlink" title="程序保护机制"></a>程序保护机制</h1><h2 id="1-NX"><a href="#1-NX" class="headerlink" title="1) NX:"></a>1) NX:</h2><p>数据执行保护，即DEP (Data Execution Prevention)，(non-executable memory)中执行指令。在80x86体系结构中，操作系统的内存管理是通过页面表(page table)存储方式来实现的，其最后一位就是NX位，0表示允许执行代码，1表示禁止执行代码。一般来说，NX主要是防止直接在 栈(stack) 和 堆(heap) 上运行shellcode代码。gcc默认开启不可执行栈功能，添加编译选项-z execstack即可开启栈可执行功能。</p>
-<h2 id="2-ASLR"><a href="#2-ASLR" class="headerlink" title="2)ASLR:"></a>2)ASLR:</h2><p>地址空间随机化，/proc/sys/kernel/randomize_va_space里的值可以控制系统级的ASLR，使用root权限可以进行修改，有三个值可以设置，具体说明如下。<br>    ·0：关闭ASLR。<br>    ·1：mmap base、stack、vdso page将随机化。这意味着”.so”文件将被加载到随机地址。链接时指定了-pie 选项的可执行程序，其代码段加载地址将被随机化。配置内核时如果指定了 CONFIG_COMPAT BRK，则 randomize_va_space 默认为1，此时heap没有随机化。<br>    ·2：在1的基础上增加了heap随机化。配置内核时如果禁用 CONFIG_COMPAT_BRK，则 randomize_va_space 默认为2。ASLR可以保证在每次程序加载的时候自身和所加载的库文件都会被映射到虚拟地址空间的不同地址处。</p>
-<h2 id="3-PIE"><a href="#3-PIE" class="headerlink" title="3) PIE:"></a>3) PIE:</h2><p>   代码段随机化，具体见ASLR。</p>
-<h2 id="4-RELRO"><a href="#4-RELRO" class="headerlink" title="4) RELRO:"></a>4) RELRO:</h2><p>   重定位，一般会分为两种情况， 即 partial relro 和 fullrelro，具体区别就是前者重定位信息(如got表)可写，而后者不可写。</p>
-<h2 id="5-STACK-CANARY"><a href="#5-STACK-CANARY" class="headerlink" title="5) STACK CANARY:"></a>5) STACK CANARY:</h2><p>   栈溢出保护，gcc编译程序默认开启，添加编译选项 <code>-fno-stack- protector</code> 会关闭程序的stack canary栈保护。</p>
-
+    
     
 
     
@@ -886,81 +946,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2020/08/04/MySQL-show%E8%AF%AD%E6%B3%95/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-sql注入-堆叠注入" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/08/04/sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/" target="_blank">sql注入-堆叠注入</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/08/04/sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/" class="archive-article-date">
-        <time datetime="2020-08-04T05:43:58.825Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-04</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="0x01-原理"><a href="#0x01-原理" class="headerlink" title="0x01 原理"></a>0x01 原理</h1><p>在SQL中，分号（;）是用来表示一条sql语句的结束。试想一下我们在 ; 结束一个sql语句后继续构造下一条语句，会不会一起执行？因此这个想法也就造就了堆叠注入。而<code>union injection</code>（联合注入）也是将两条语句合并在一起，两者之间有什么区别么？区别就在于<code>union</code> 或者<code>union all</code>执行的语句类型是有限的，可以用来执行查询语句，而堆叠注入可以执行的是任意的语句。例如以下这个例子。用户输入：<code>1; DELETE FROM products</code>服务器端生成的sql语句为：（因未对输入的参数进行过滤）<code>Select * from products where productid=1;DELETE FROM products</code>当执行查询后，第一条显示查询信息，第二条则将整个表进行删除。</p>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/08/04/sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/">展开全文 >></a>
     </p>
     
 

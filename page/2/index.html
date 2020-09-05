@@ -194,6 +194,81 @@
             
 
   
+    <article id="post-sql注入-堆叠注入" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/08/04/sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/" target="_blank">sql注入-堆叠注入</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/08/04/sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/" class="archive-article-date">
+        <time datetime="2020-08-04T05:43:58.825Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-04</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="0x01-原理"><a href="#0x01-原理" class="headerlink" title="0x01 原理"></a>0x01 原理</h1><p>在SQL中，分号（;）是用来表示一条sql语句的结束。试想一下我们在 ; 结束一个sql语句后继续构造下一条语句，会不会一起执行？因此这个想法也就造就了堆叠注入。而<code>union injection</code>（联合注入）也是将两条语句合并在一起，两者之间有什么区别么？区别就在于<code>union</code> 或者<code>union all</code>执行的语句类型是有限的，可以用来执行查询语句，而堆叠注入可以执行的是任意的语句。例如以下这个例子。用户输入：<code>1; DELETE FROM products</code>服务器端生成的sql语句为：（因未对输入的参数进行过滤）<code>Select * from products where productid=1;DELETE FROM products</code>当执行查询后，第一条显示查询信息，第二条则将整个表进行删除。</p>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/08/04/sql%E6%B3%A8%E5%85%A5-%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-sql注入" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
