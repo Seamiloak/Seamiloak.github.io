@@ -6,21 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>gdb-peda使用 | 一颗小柠檬</title>
+  <title>攻防世界-reverse | 一颗小柠檬</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="安装123$ pip install peda$ git clone https:&#x2F;&#x2F;github.com&#x2F;longld&#x2F;peda.git ~&#x2F;peda$ echo &quot;source ~&#x2F;peda&#x2F;peda.py&quot; &gt;&gt; ~&#x2F;.gdbinit">
+  <meta name="description" content="0X01 game 2020.10.16IDA打开，主要是main_0函数 题目大概意思是：有若干灯，需要全部点亮，可以通过输入改变某一个灯的状态，但是相邻两个灯也会改变，全部灯亮方为获胜。 这是main_0函数主要的地方，if 条件通过后进入一个函数 这个是进入的函数最主要的地方是 paload： 1234567891011121314str1 &#x3D; [18, 64, 98, 5, 2,">
 <meta property="og:type" content="article">
-<meta property="og:title" content="gdb-peda使用">
-<meta property="og:url" content="http://yoursite.com/2020/10/16/gdb-peda%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:title" content="攻防世界-reverse">
+<meta property="og:url" content="http://yoursite.com/2020/10/16/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C-reverse/index.html">
 <meta property="og:site_name" content="一颗小柠檬">
-<meta property="og:description" content="安装123$ pip install peda$ git clone https:&#x2F;&#x2F;github.com&#x2F;longld&#x2F;peda.git ~&#x2F;peda$ echo &quot;source ~&#x2F;peda&#x2F;peda.py&quot; &gt;&gt; ~&#x2F;.gdbinit">
+<meta property="og:description" content="0X01 game 2020.10.16IDA打开，主要是main_0函数 题目大概意思是：有若干灯，需要全部点亮，可以通过输入改变某一个灯的状态，但是相邻两个灯也会改变，全部灯亮方为获胜。 这是main_0函数主要的地方，if 条件通过后进入一个函数 这个是进入的函数最主要的地方是 paload： 1234567891011121314str1 &#x3D; [18, 64, 98, 5, 2,">
 <meta property="og:locale" content="cn">
-<meta property="article:published_time" content="2020-10-16T02:11:12.811Z">
-<meta property="article:modified_time" content="2020-10-16T02:15:13.107Z">
+<meta property="og:image" content="http://yoursite.com/2020/10/16/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C-reverse/game-1.png">
+<meta property="og:image" content="http://yoursite.com/2020/10/16/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C-reverse/game-2.png">
+<meta property="og:image" content="http://yoursite.com/2020/10/16/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C-reverse/game-3.png">
+<meta property="article:published_time" content="2020-10-16T04:01:37.285Z">
+<meta property="article:modified_time" content="2020-10-16T04:26:27.968Z">
 <meta property="article:author" content="Seamiloak">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/10/16/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C-reverse/game-1.png">
   
     <link rel="alternative" href="/atom.xml" title="一颗小柠檬" type="application/atom+xml">
   
@@ -191,14 +195,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-gdb-peda使用" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-攻防世界-reverse" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      gdb-peda使用
+      攻防世界-reverse
     </h1>
   
 
@@ -210,8 +214,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/10/16/gdb-peda%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-        <time datetime="2020-10-16T02:11:12.811Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-16</time>
+<a href="/2020/10/16/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C-reverse/" class="archive-article-date">
+        <time datetime="2020-10-16T04:01:37.285Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-16</time>
 </a>
 
   
@@ -224,7 +228,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">924字</span>
+      <span class="post-count">242字</span>
     </span>
   </span>
 
@@ -233,7 +237,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">3分</span>
+      <span class="post-count">1分</span>
     </span>
   </span>
 </div>
@@ -244,21 +248,12 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ pip install peda</span><br><span class="line">$ git clone https:&#x2F;&#x2F;github.com&#x2F;longld&#x2F;peda.git ~&#x2F;peda</span><br><span class="line">$ echo &quot;source ~&#x2F;peda&#x2F;peda.py&quot; &gt;&gt; ~&#x2F;.gdbinit</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-<h1 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">file 路径　-　附加文件</span><br><span class="line">break *0x400100 (b main) - 在 0x400100 处下断点</span><br><span class="line">tb  - 一次性断点</span><br><span class="line">info b - 查看断点信息</span><br><span class="line">enable   -   激活断点</span><br><span class="line">disable  -   禁用断点</span><br><span class="line">delete [number]  -  删除断点</span><br><span class="line">watch *(int *)0x08044530  -  在内存0x0804453处的数据改变时stop</span><br><span class="line">p $eax - 输出eax的内容</span><br><span class="line">set $eax&#x3D;4 - 修改变量值</span><br><span class="line"></span><br><span class="line">c - 继续运行</span><br><span class="line">r - 开始运行</span><br><span class="line">ni - 单步步过</span><br><span class="line">si - 单步步入</span><br><span class="line">fini - 运行至函数刚结束处</span><br><span class="line">return expression - 将函数返回值指定为expression</span><br><span class="line">bt - 查看当前栈帧</span><br><span class="line">info f - 查看当前栈帧</span><br><span class="line">context - 查看运行上下文</span><br><span class="line">stack - 查看当前堆栈</span><br><span class="line">call func - 强制函数调用</span><br><span class="line">stack 100 - 插件提供的，显示栈中100项</span><br><span class="line">find xxx　 - 快速查找，很实用</span><br><span class="line"></span><br><span class="line">x&#x2F;&lt;n&#x2F;f&#x2F;u&gt; &lt;addr&gt;     n、f、u是可选的参数。</span><br><span class="line">x &#x2F;4xg $ebp：查看ebp开始的4个8字节内容</span><br><span class="line">x&#x2F;wx $esp 　　以4字节16进制显示栈中内容</span><br><span class="line">b表示单字节，h表示双字节，w表示四字 节，g表示八字节</span><br><span class="line">s 按字符串输出</span><br><span class="line">x 按十六进制格式显示变量。</span><br><span class="line">d 按十进制格式显示变量。</span><br><span class="line">u 按十六进制格式显示无符号整型。</span><br><span class="line">o 按八进制格式显示变量。</span><br><span class="line">t 按二进制格式显示变量。</span><br><span class="line">a 按十六进制格式显示变量。</span><br><span class="line">c 按字符格式显示变量。</span><br><span class="line">f 按浮点数格式显示变量。</span><br><span class="line">i：反汇编</span><br><span class="line"></span><br><span class="line">但是实际的组合就那么几种：</span><br><span class="line">x&#x2F;s 地址　　查看字符串</span><br><span class="line">x&#x2F;wx 地址　　查看DWORD</span><br><span class="line">x&#x2F;c 地址　　单字节查看</span><br><span class="line">x&#x2F;16x $esp+12 查看寄存器偏移</span><br><span class="line"></span><br><span class="line">set args  - 可指定运行时参数。（如：set args 10 20 30 40 50）</span><br><span class="line">show args  - 命令可以查看设置好的运行参数。</span><br></pre></td></tr></table></figure>
-
-<h1 id="插件命令"><a href="#插件命令" class="headerlink" title="插件命令"></a>插件命令</h1><p>aslr - 显示/设定GDB的ASLR(地址空间配置随机加载)设置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gdb-peda$ aslr</span><br><span class="line">ASLR is OFF</span><br></pre></td></tr></table></figure>
-
-<p>checksec - 检查二进制文件的各种安全选项</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gdb-peda$ checksec</span><br><span class="line">CANARY    : disabled</span><br><span class="line">FORTIFY   : disabled</span><br><span class="line">NX        : ENABLED</span><br><span class="line">PIE       : disabled</span><br><span class="line">RELRO     : Partial</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">dumpargs - 函数将要被调用时，显示将要被传入函数的所有参数(默认会在反汇编代码下方自动显示)</span><br><span class="line"></span><br><span class="line">dumprop - 在给定内存范围中Dump出所有ROP gadgets</span><br><span class="line"></span><br><span class="line">elfheader - 从被调试的ELF文件中获取标题信息</span><br><span class="line"></span><br><span class="line">elfsymbol - 从ELF文件获取非调试符号信息（plt表）</span><br><span class="line"></span><br><span class="line">lookup - 搜索所有地址&#x2F;参考地址属于一个内存范围</span><br><span class="line"></span><br><span class="line">patch - 修补程序内存以string &#x2F; hexstring &#x2F; int的地址开始</span><br><span class="line"></span><br><span class="line">procinfo - 显示&#x2F; proc &#x2F; pid &#x2F;</span><br><span class="line"></span><br><span class="line">pshow - 显示各种PEDA选项和其他设置</span><br><span class="line"></span><br><span class="line">pset - 设置各种PEDA选项和其他设置</span><br><span class="line"></span><br><span class="line">pattern - 生成字符串模板 写入内存 用于定位溢出点</span><br><span class="line"></span><br><span class="line">pattern create size 生成特定长度字符串</span><br><span class="line">pattern offset value 定位字符串</span><br><span class="line">procinfo – Display various info from &#x2F;proc&#x2F;pid&#x2F;</span><br><span class="line"></span><br><span class="line">pshow – Show various PEDA options and other settings</span><br><span class="line"></span><br><span class="line">pset– Set various PEDA options and other settings</span><br><span class="line"></span><br><span class="line">readelf - 从ELF文件获取标题信息</span><br><span class="line"></span><br><span class="line">ropgadget - 获取二进制或库的通用ROP小工具</span><br><span class="line"></span><br><span class="line">ropsearch - 在内存中搜索ROP小工具</span><br><span class="line"></span><br><span class="line">searchmem - 用搜索内存</span><br><span class="line"></span><br><span class="line">searchmem|find - 在内存中查找字符串，支持正则表达式，例如searchmem &quot;&#x2F;bin&#x2F;sh&quot; libc</span><br><span class="line">shellcode - 生成或下载常用的shellcode。</span><br><span class="line"></span><br><span class="line">skeleton - 生成python漏洞利用代码模板</span><br><span class="line"></span><br><span class="line">vmmap - 可以用来查看栈、bss段是否可以执行</span><br><span class="line"></span><br><span class="line">xormem - 用一个键异或存储区域</span><br><span class="line"></span><br><span class="line">ptype struct link_map - 查看link_map定义</span><br><span class="line"></span><br><span class="line">p &amp;((struct link_map*)0)-&gt;l_info - 查看l_info成员偏移</span><br></pre></td></tr></table></figure>
-
-<p>作者：余生似梦<br>链接：<a href="https://www.jianshu.com/p/283b5466684b" target="_blank" rel="noopener">https://www.jianshu.com/p/283b5466684b</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-
+    <h2 id="0X01-game-2020-10-16"><a href="#0X01-game-2020-10-16" class="headerlink" title="0X01 game 2020.10.16"></a>0X01 game 2020.10.16</h2><p>IDA打开，主要是main_0函数<br><img src="./game-1.png" alt></p>
+<p>题目大概意思是：有若干灯，需要全部点亮，可以通过输入改变某一个灯的状态，但是相邻两个灯也会改变，全部灯亮方为获胜。</p>
+<p>这是main_0函数主要的地方，if 条件通过后进入一个函数<br><img src="./game-2.png" alt></p>
+<p>这个是进入的函数最主要的地方是<br><img src="./game-3.png" alt></p>
+<p>paload：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">str1 &#x3D; [18, 64, 98, 5, 2, 4, 6, 3, 6, 48, 49, 65, 32, 12, 48, 65, 31, 78, 62,</span><br><span class="line">        32, 49, 32, 1, 57, 96, 3, 21, 9, 4, 62, 3, 5, 4, 1, 2, 3, 44, 65, 78,</span><br><span class="line">        32, 16, 97, 54, 16, 44, 52, 32, 64, 89, 45, 32, 65, 15, 34, 18, 16, 0]</span><br><span class="line"></span><br><span class="line">str2 &#x3D; [123, 32, 18, 98, 119, 108, 65, 41, 124, 80, 125, 38, 124, 111, 74, 49, 83, 108,</span><br><span class="line">        94, 108, 84, 6, 96, 83, 44, 121, 104, 110, 32, 95, 117, 101, 99, 123, 127, 119,</span><br><span class="line">        96, 48, 107, 71, 92, 29, 81, 107, 90, 85, 64, 12, 43, 76, 86, 13, 114, 1, 117, 126, 0]</span><br><span class="line"></span><br><span class="line">flag &#x3D; &#39;&#39;</span><br><span class="line">for i in range(56):</span><br><span class="line">    x &#x3D; str1[i] ^ str2[i]</span><br><span class="line">    flag +&#x3D; chr(x ^ 0x13)</span><br><span class="line"></span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
     
 
     
@@ -294,7 +289,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://yoursite.com/2020/10/16/gdb-peda使用/" title="gdb-peda使用" target="_blank">http://yoursite.com/2020/10/16/gdb-peda使用/</a>
+          <a href="http://yoursite.com/2020/10/16/攻防世界-reverse/" title="攻防世界-reverse" target="_blank">http://yoursite.com/2020/10/16/攻防世界-reverse/</a>
         </li>
         
         <li>
@@ -361,7 +356,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/10/16/gdb-peda%E4%BD%BF%E7%94%A8/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/10/16/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C-reverse/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -376,18 +371,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2020/10/16/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C-reverse/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          攻防世界-reverse
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/10/16/yafu%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">yafu使用方法</div>
+    <a href="/2020/10/16/gdb-peda%E4%BD%BF%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">gdb-peda使用</div>
       <i class="icon-circle-right"></i>
     </a>
   

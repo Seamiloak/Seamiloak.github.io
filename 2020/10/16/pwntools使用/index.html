@@ -18,7 +18,7 @@
 <meta property="og:description" content="安装安装可以参考我写的另一篇文章，不过也就几条命令。  模块介绍使用from pwn import *将所有的模块导入到当前namespace，这条语句还会帮你把os,sys等常用的系统库导入。   常用模块如下： 12345678asm : 汇编与反汇编，支持x86&#x2F;x64&#x2F;arm&#x2F;mips&#x2F;powerpc等基本上所有的主流平台dynelf : 用于远程">
 <meta property="og:locale" content="cn">
 <meta property="article:published_time" content="2020-10-16T02:11:12.749Z">
-<meta property="article:modified_time" content="2020-10-16T02:15:37.437Z">
+<meta property="article:modified_time" content="2020-10-16T08:10:02.457Z">
 <meta property="article:author" content="Seamiloak">
 <meta name="twitter:card" content="summary">
   
@@ -256,7 +256,7 @@
 <a id="more"></a>
 <ol start="3">
 <li><p>连接</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">本地 ：sh &#x3D; porcess(&quot;.&#x2F;level0&quot;)</span><br><span class="line">远程：sh &#x3D; remote(&quot;127.0.0.1&quot;,10001)</span><br><span class="line">关闭连接：sh.close()</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">本地 ：sh &#x3D; process(&quot;.&#x2F;level0&quot;)</span><br><span class="line">远程：sh &#x3D; remote(&quot;127.0.0.1&quot;,10001)</span><br><span class="line">关闭连接：sh.close()</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>IO模块</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sh.send(data)  发送数据</span><br><span class="line">sh.sendline(data)  发送一行数据，相当于在数据后面加\n</span><br><span class="line">sh.recv(numb &#x3D; 2048, timeout &#x3D; dufault)  接受数据，numb指定接收的字节，timeout指定超时</span><br><span class="line">sh.recvline(keepends&#x3D;True)  接受一行数据，keepends为是否保留行尾的\n</span><br><span class="line">sh.recvuntil(&quot;Hello,World\n&quot;,drop&#x3D;fasle)  接受数据直到我们设置的标志出现</span><br><span class="line">sh.recvall()  一直接收直到EOF</span><br><span class="line">sh.recvrepeat(timeout &#x3D; default)  持续接受直到EOF或timeout</span><br><span class="line">sh.interactive()  直接进行交互，相当于回到shell的模式，在取得shell之后使用</span><br></pre></td></tr></table></figure>
