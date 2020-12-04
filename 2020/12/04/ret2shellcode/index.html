@@ -18,7 +18,7 @@
 <meta property="og:description" content="ret2shellcode原理ret2shellcode，即控制程序执行 shellcode 代码。shellcode 指的是用于完成某个功能的汇编代码，常见的功能主要是获取目标系统的 shell。一般来说，shellcode 需要我们自己填充。这其实是另外一种典型的利用方法，即此时我们需要自己去填充一些可执行的代码。 在栈溢出的基础上，要想执行 shellcode，需要对应的 binary 在运">
 <meta property="og:locale" content="cn">
 <meta property="article:published_time" content="2020-12-04T08:36:58.415Z">
-<meta property="article:modified_time" content="2020-12-04T08:44:53.181Z">
+<meta property="article:modified_time" content="2020-12-04T08:46:20.231Z">
 <meta property="article:author" content="Seamiloak">
 <meta name="twitter:card" content="summary">
   
@@ -246,6 +246,7 @@
     
     <h1 id="ret2shellcode"><a href="#ret2shellcode" class="headerlink" title="ret2shellcode"></a>ret2shellcode</h1><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>ret2shellcode，即控制程序执行 shellcode 代码。shellcode 指的是用于完成某个功能的汇编代码，常见的功能主要是获取目标系统的 shell。<strong>一般来说，shellcode 需要我们自己填充。这其实是另外一种典型的利用方法，即此时我们需要自己去填充一些可执行的代码。</strong></p>
 <p>在栈溢出的基础上，要想执行 shellcode，需要对应的 binary 在运行时，shellcode 所在的区域具有可执行权限。</p>
+<a id="more"></a>
 <h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>这里我们以 bamboofox 中的 ret2shellcode 为例</p>
 <p>首先检测程序开启的保护</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[*] &#39;&#x2F;home&#x2F;seamiloak&#x2F;Desktop&#x2F;ret2shellcode&#39;</span><br><span class="line">    Arch:     i386-32-little</span><br><span class="line">    RELRO:    Partial RELRO</span><br><span class="line">    Stack:    No canary found</span><br><span class="line">    NX:       NX disabled</span><br><span class="line">    PIE:      No PIE (0x8048000)</span><br><span class="line">    RWX:      Has RWX segments</span><br></pre></td></tr></table></figure>
