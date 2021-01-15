@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/10 | 一颗小柠檬</title>
+  <title>线程创建函数 CreateThread | 一颗小柠檬</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="一颗小柠檬">
-<meta property="og:url" content="http://yoursite.com/archives/2020/10/index.html">
+  <meta name="description" content="创建步骤CreateThread 将在主线程的基础上创建一个新线程，大致做如下步骤：1.在内核对象中分配一个线程标识&#x2F;句柄，可供管理，由CreateThread返回2.把线程退出码置为STILL_ACTIVE，把线程挂起计数置13.分配context结构4.分配两页的物理存储以准备栈，保护页设置为PAGE_READWRITE，第2页设为PAGE_GUARD5.lpStartAddr和lpvThre">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线程创建函数 CreateThread">
+<meta property="og:url" content="http://yoursite.com/2021/01/15/%E7%BA%BF%E7%A8%8B%E5%88%9B%E5%BB%BA%E5%87%BD%E6%95%B0%20CreateThread/index.html">
 <meta property="og:site_name" content="一颗小柠檬">
+<meta property="og:description" content="创建步骤CreateThread 将在主线程的基础上创建一个新线程，大致做如下步骤：1.在内核对象中分配一个线程标识&#x2F;句柄，可供管理，由CreateThread返回2.把线程退出码置为STILL_ACTIVE，把线程挂起计数置13.分配context结构4.分配两页的物理存储以准备栈，保护页设置为PAGE_READWRITE，第2页设为PAGE_GUARD5.lpStartAddr和lpvThre">
 <meta property="og:locale" content="cn">
+<meta property="article:published_time" content="2021-01-15T04:44:13.703Z">
+<meta property="article:modified_time" content="2021-01-15T05:47:30.324Z">
 <meta property="article:author" content="Seamiloak">
 <meta name="twitter:card" content="summary">
   
@@ -187,150 +191,238 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-线程创建函数 CreateThread" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/10/16/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C-reverse/" class="archive-article-date">
-        <time datetime="2020-10-16T04:01:37.285Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-16</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/10/16/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C-reverse/" target="_blank">攻防世界-reverse</a>
   
+    <h1 class="article-title" itemprop="name">
+      线程创建函数 CreateThread
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/10/16/gdb-peda%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-        <time datetime="2020-10-16T02:11:12.811Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-16</time>
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2021/01/15/%E7%BA%BF%E7%A8%8B%E5%88%9B%E5%BB%BA%E5%87%BD%E6%95%B0%20CreateThread/" class="archive-article-date">
+        <time datetime="2021-01-15T04:44:13.703Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-15</time>
 </a>
 
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">745字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">3分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="创建步骤"><a href="#创建步骤" class="headerlink" title="创建步骤"></a>创建步骤</h2><p>CreateThread 将在主线程的基础上创建一个新线程，大致做如下步骤：<br>1.在内核对象中分配一个线程标识/句柄，可供管理，由CreateThread返回<br>2.把线程退出码置为STILL_ACTIVE，把线程挂起计数置1<br>3.分配context结构<br>4.分配两页的物理存储以准备栈，保护页设置为PAGE_READWRITE，第2页设为PAGE_GUARD<br>5.lpStartAddr和lpvThread值被放在栈顶，使它们成为传送给StartOfThread的参数<br>6.把context结构的栈指针指向栈顶（第5步）指令指针指向startOfThread函数</p>
+<a id="more"></a>
+
+<h2 id="函数原型"><a href="#函数原型" class="headerlink" title="函数原型"></a>函数原型</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CreateThread(</span><br><span class="line">_In_opt_LPSECURITY_ATTRIBUTES lpThreadAttributes,</span><br><span class="line">_In_SIZE_T dwStackSize,</span><br><span class="line">_In_LPTHREAD_START_ROUTINE lpStartAddress,</span><br><span class="line">_In_opt___drv_aliasesMemLPVOID lpParameter,</span><br><span class="line">_In_DWORD dwCreationFlags,</span><br><span class="line">_Out_opt_LPDWORD lpThreadId</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h2 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h2><ol>
+<li><p><strong>lpThreadAttributes</strong>：指向SECURITY_ATTRIBUTES型态的结构的指针。在Windows 98中忽略该参数。在Windows NT中，NULL使用默认安全性，不可以被子线程继承，否则需要定义一个结构体将它的bInheritHandle成员初始化为TRUE</p>
+</li>
+<li><p><strong>dwStackSize</strong>：设置初始栈的大小，以字节为单位，如果为0，那么默认将使用与调用该函数的线程相同的栈空间大小。任何情况下，Windows根据需要动态延长堆栈的大小。</p>
+</li>
+<li><p><strong>lpStartAddress</strong>：指向线程函数的指针，形式：@函数名，函数名称没有限制，<br>线程有两种声明方式<br>（1）DWORD WINAPI 函数名 (LPVOID lpParam); //标准格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DWORD WINAPI 函数名 (LPVOID lpParam)</span><br><span class="line">&#123;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">CreateThread(NULL, 0, 函数名, 0, 0, 0);</span><br></pre></td></tr></table></figure>
+<p>（2）void 函数名();<br>使用void 函数名()此种线程声明方式时，lpStartAddress需要加入LPTHREAD_START_ROUTINE转换，如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">void 函数名()</span><br><span class="line">&#123;</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)函数名, 0, 0, 0);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>lpParameter</strong>：向线程函数传递的参数，是一个指向结构的指针，不需传递参数时，为NULL。</p>
+</li>
+<li><p><strong>dwCreationFlags</strong>：线程标志,可取值如下<br>（1）CREATE_SUSPENDED(0x00000004)：创建一个挂起的线程，<br>（2）0：表示创建后立即激活。<br>（3）STACK_SIZE_PARAM_IS_A_RESERVATION(0x00010000)：dwStackSize参数指定初始的保留堆栈 的大小，否则,dwStackSize指定提交的大小。该标记值在Windows 2000/NT and Windows Me/98/95上不支持。</p>
+</li>
+<li><p><strong>lpThreadId</strong>：保存新线程的id。</p>
+</li>
+</ol>
+<p>返回值：函数成功，返回线程句柄；函数失败返回false。若不想返回线程ID,设置值为NULL。</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;Windows.h&gt;</span><br><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">DWORD WINAPI ThreadFunc(LPVOID);</span><br><span class="line">void ThreadFunc1();</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">	HANDLE hThread;</span><br><span class="line">	DWORD  threadId;</span><br><span class="line"></span><br><span class="line">	hThread &#x3D; CreateThread(NULL, 0, ThreadFunc, 0, 0, &amp;threadId); &#x2F;&#x2F; 创建线程</span><br><span class="line">	CreateThread(NULL, 0, ThreadFunc, 0, 0, &amp;threadId);</span><br><span class="line">	hThread &#x3D; CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)ThreadFunc1, 0, 0, &amp;threadId);</span><br><span class="line">	CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)ThreadFunc1, 0, 0, &amp;threadId);</span><br><span class="line">	printf(&quot;我是主线程， pid &#x3D; %d\n&quot;, GetCurrentThreadId());  &#x2F;&#x2F;输出主线程pid</span><br><span class="line">	Sleep(3000);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">DWORD WINAPI ThreadFunc(LPVOID p)</span><br><span class="line">&#123;</span><br><span class="line">	printf(&quot;我是子线程1， pid &#x3D; %d\n&quot;, GetCurrentThreadId());   &#x2F;&#x2F;输出子线程pid</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void ThreadFunc1()</span><br><span class="line">&#123;</span><br><span class="line">	printf(&quot;我是子线程2， pid &#x3D; %d\n&quot;, GetCurrentThreadId());   &#x2F;&#x2F;输出子线程pid</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">我是主线程， pid &#x3D; 10908</span><br><span class="line">我是子线程1， pid &#x3D; 11776</span><br><span class="line">我是子线程1， pid &#x3D; 13092</span><br><span class="line">我是子线程2， pid &#x3D; 13324</span><br><span class="line">我是子线程2， pid &#x3D; 12360</span><br></pre></td></tr></table></figure>
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  
+                </div>
+              </span>
+            </span>
+          </span>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/10/16/gdb-peda%E4%BD%BF%E7%94%A8/" target="_blank">gdb-peda使用</a>
-  
-    </h1>
-  
+      </a>
+    </div>
+    
 
-
-        <div class="article-info info-on-right">
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          Seamiloak
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://yoursite.com/2021/01/15/线程创建函数 CreateThread/" title="线程创建函数 CreateThread" target="_blank">http://yoursite.com/2021/01/15/线程创建函数 CreateThread/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
-          
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
 
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2021/01/15/%E7%BA%BF%E7%A8%8B%E5%88%9B%E5%BB%BA%E5%87%BD%E6%95%B0%20CreateThread/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/10/16/yafu%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" class="archive-article-date">
-        <time datetime="2020-10-16T02:11:12.783Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-16</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/12/04/ret2shellcode/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ret2shellcode</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/10/16/yafu%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" target="_blank">yafu使用方法</a>
-  
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/10/16/pwntools%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-        <time datetime="2020-10-16T02:11:12.749Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-16</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/10/16/pwntools%E4%BD%BF%E7%94%A8/" target="_blank">pwntools使用</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+
+
+
+
+
+
 
 
           </div>
@@ -371,8 +463,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
