@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>一颗小柠檬</title>
+  <title>rot13算法 | 一颗小柠檬</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-    
-    <!-- <meta name="keywords" content="">
-    <meta name="description" content=""> -->
-  
-  <meta property="og:type" content="website">
-<meta property="og:title" content="一颗小柠檬">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+  <meta name="description" content="密码描述套用ROT13到一段文字上仅仅只需要检查字元字母顺序并取代它在13位之后的对应字母，有需要超过时则重新绕回26英文字母开头即可。A换成N、B换成O、依此类推到M换成Z，然后序列反转：N换成A、O换成B、最后Z换成M。只有这些出现在英文字母里头的字元受影响；数字、符号、空白字元以及所有其他字元都不变。因为只有在英文字母表里头只有26个，并且26&#x3D;2×13，ROT13函数是它自己的逆反： 对任">
+<meta property="og:type" content="article">
+<meta property="og:title" content="rot13算法">
+<meta property="og:url" content="http://yoursite.com/2021/01/16/rot13%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="一颗小柠檬">
+<meta property="og:description" content="密码描述套用ROT13到一段文字上仅仅只需要检查字元字母顺序并取代它在13位之后的对应字母，有需要超过时则重新绕回26英文字母开头即可。A换成N、B换成O、依此类推到M换成Z，然后序列反转：N换成A、O换成B、最后Z换成M。只有这些出现在英文字母里头的字元受影响；数字、符号、空白字元以及所有其他字元都不变。因为只有在英文字母表里头只有26个，并且26&#x3D;2×13，ROT13函数是它自己的逆反： 对任">
 <meta property="og:locale" content="cn">
+<meta property="article:published_time" content="2021-01-16T15:50:39.030Z">
+<meta property="article:modified_time" content="2021-01-16T15:55:20.003Z">
 <meta property="article:author" content="Seamiloak">
 <meta name="twitter:card" content="summary">
   
@@ -191,46 +191,108 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-
-  
-    <article id="post-web序列化与反序列化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-rot13算法" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/09/05/web%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" target="_blank">web序列化与反序列化</a>
-  
+    <h1 class="article-title" itemprop="name">
+      rot13算法
     </h1>
   
 
 
   
   
-<a href="/2020/09/05/web%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" class="archive-article-date">
-        <time datetime="2020-09-05T15:41:19.406Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-05</time>
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2021/01/16/rot13%E7%AE%97%E6%B3%95/" class="archive-article-date">
+        <time datetime="2021-01-16T15:50:39.030Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-16</time>
 </a>
 
   
   
     
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">291字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">1分</span>
+    </span>
+  </span>
+</div>
+
 
   
   </header>
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="序列化与反序列化"><a href="#序列化与反序列化" class="headerlink" title="序列化与反序列化"></a>序列化与反序列化</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><strong>序列化（串行化）：</strong><br>是将变量转换为可保存或传输的字符串的过程；</p>
-<p><strong>反序列化（反串行化）：</strong><br>就是在适当的时候把这个字符串再转化成原来的变量使用。</p>
-<p>这两个过程结合起来，可以轻松地存储和传输数据，使程序更具维护性。</p>
+    <h2 id="密码描述"><a href="#密码描述" class="headerlink" title="密码描述"></a>密码描述</h2><p>套用ROT13到一段文字上仅仅只需要检查字元字母顺序并取代它在13位之后的对应字母，有需要超过时则重新绕回26英文字母开头即可。A换成N、B换成O、依此类推到M换成Z，然后序列反转：N换成A、O换成B、最后Z换成M。只有这些出现在英文字母里头的字元受影响；数字、符号、空白字元以及所有其他字元都不变。因为只有在英文字母表里头只有26个，并且26=2×13，ROT13函数是它自己的逆反：</p>
+<p>对任何字元x：<code>ROT13(ROT13(x))=ROT26(x)=x。</code><br>换句话说，两个连续的ROT13应用函式会回复原始文字（在数学上，这有时称之为对合（involution）；在密码学上，这叫做对等加密（reciprocalcipher））。</p>
+<h2 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">def rot13(i):</span><br><span class="line">    cipher &#x3D; &#39;&#39;</span><br><span class="line">    if i.isupper():</span><br><span class="line">        if 90 &gt;&#x3D; ord(i) + 13:</span><br><span class="line">            cipher +&#x3D; chr((ord(i) + 13 - 65) % 26 + 65)</span><br><span class="line">        else:</span><br><span class="line">            cipher +&#x3D; chr((ord(i) - 13 - 65) % 26 + 65)</span><br><span class="line">    elif i.islower():</span><br><span class="line">        if 122 &gt;&#x3D; ord(i) + 13:</span><br><span class="line">            cipher +&#x3D; chr((ord(i) + 13 - 97) % 26 + 97)</span><br><span class="line">        else:</span><br><span class="line">            cipher +&#x3D; chr((ord(i) - 13 - 97) % 26 + 97)</span><br><span class="line">    else:</span><br><span class="line">        cipher +&#x3D; i</span><br><span class="line">    return cipher</span><br></pre></td></tr></table></figure>
     
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
     
 
     
-
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          Seamiloak
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://yoursite.com/2021/01/16/rot13算法/" title="rot13算法" target="_blank">http://yoursite.com/2021/01/16/rot13算法/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
     
 
   </div>
@@ -240,16 +302,76 @@
     
 
     
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/09/05/web%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">展开全文 >></a>
-    </p>
+
     
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2021/01/16/rot13%E7%AE%97%E6%B3%95/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
 
     
     <div class="clearfix"></div>
   </div>
   </div>
 </article>
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2021/01/15/%E7%BA%BF%E7%A8%8B%E5%88%9B%E5%BB%BA%E5%87%BD%E6%95%B0%20CreateThread/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">线程创建函数 CreateThread</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -270,700 +392,14 @@
 
 
 
-  
-    <article id="post-preg-match绕过" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/09/05/preg-match%E7%BB%95%E8%BF%87/" target="_blank">preg-match绕过</a>
-  
-    </h1>
-  
 
 
-  
-  
-<a href="/2020/09/05/preg-match%E7%BB%95%E8%BF%87/" class="archive-article-date">
-        <time datetime="2020-09-05T15:09:29.502Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-05</time>
-</a>
 
-  
-  
-    
 
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="PHP-preg-match-函数"><a href="#PHP-preg-match-函数" class="headerlink" title="PHP preg_match() 函数"></a>PHP preg_match() 函数</h1><h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>preg_match 函数用于执行一个正则表达式匹配。</p>
-<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p><code>int preg_match ( string $pattern , string $subject [, array &amp;$matches [, int $flags = 0 [, int $offset = 0 ]]] )</code><br>搜索 subject 与 pattern 给定的正则表达式的一个匹配。</p>
-    
-    
 
-    
 
-    
 
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
 
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/09/05/preg-match%E7%BB%95%E8%BF%87/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ping注入" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/09/05/ping%E6%B3%A8%E5%85%A5/" target="_blank">ping注入</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/09/05/ping%E6%B3%A8%E5%85%A5/" class="archive-article-date">
-        <time datetime="2020-09-05T13:56:10.520Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-05</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="0x01-ICMP协议与ping命令"><a href="#0x01-ICMP协议与ping命令" class="headerlink" title="0x01 ICMP协议与ping命令"></a>0x01 ICMP协议与ping命令</h1><h2 id="0x11-ping什么？"><a href="#0x11-ping什么？" class="headerlink" title="0x11 ping什么？"></a>0x11 ping什么？</h2><p>在网络中ping是一个十分强大的TCP/IP工具。它的作用主要为：<br>（1）用来检测网络的连通情况和分析网络速度；<br>（2）根据域名得到服务器IP；<br>（3）根据ping返回的TTL值来判断对方所使用的操作系统及数据包经过路由器数量。我们通常会用它来直接ping IP地址，来测试网络的连通情况。</p>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/09/05/ping%E6%B3%A8%E5%85%A5/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Steghide使用教程及其密码爆破" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/08/24/Steghide%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E5%8F%8A%E5%85%B6%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4/" target="_blank">Steghide使用教程及其密码爆破</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/08/24/Steghide%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E5%8F%8A%E5%85%B6%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4/" class="archive-article-date">
-        <time datetime="2020-08-24T07:20:20.865Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-24</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="Steghide使用教程及其密码爆破"><a href="#Steghide使用教程及其密码爆破" class="headerlink" title="Steghide使用教程及其密码爆破"></a>Steghide使用教程及其密码爆破</h1><h2 id="工具介绍"><a href="#工具介绍" class="headerlink" title="工具介绍"></a>工具介绍</h2><p>Steghide是一款开源的隐写术软件，它可以让你在一张图片或者音频文件中隐藏你的秘密信息，而且你不会注意到图片或音频文件发生了任何的改变。而且，你的秘密文件已经隐藏在了原始图片或音频文件之中了。这是一个命令行软件。因此，你需要学习使用这个工具的命令。你需要通过命令来实现将秘密文件嵌入至图片或音频文件之中。除此之外，你还需要使用其他的命令来提取你隐藏在图片或音频中的秘密文件。</p>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/08/24/Steghide%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E5%8F%8A%E5%85%B6%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-一句话木马原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/08/22/%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%9C%A8%E9%A9%AC%E5%8E%9F%E7%90%86/" target="_blank">一句话木马原理</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/08/22/%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%9C%A8%E9%A9%AC%E5%8E%9F%E7%90%86/" class="archive-article-date">
-        <time datetime="2020-08-22T14:28:18.447Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-22</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="Webshell-大马"><a href="#Webshell-大马" class="headerlink" title="Webshell(大马)"></a>Webshell(大马)</h1><p>我们经常会看到Webshell，那么，到底什么是Webshell呢？</p>
-<p>webshell就是以 asp、aspx、php、jsp 或者cgi等网页文件形式存在的一种命令执行环境，也可以将其称做为一种网页后门。黑客在入侵了一个网站后，通常会将asp、aspx、php或jsp后门文件与网站web服务器目录下正常的网页文件混在一起，然后就可以使用浏览器来访问该后门文件了，从而得到一个命令执行环境，以达到控制网站服务器的目的。</p>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/08/22/%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%9C%A8%E9%A9%AC%E5%8E%9F%E7%90%86/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-程序保护机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/08/22/%E7%A8%8B%E5%BA%8F%E4%BF%9D%E6%8A%A4%E6%9C%BA%E5%88%B6/" target="_blank">程序保护机制</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/08/22/%E7%A8%8B%E5%BA%8F%E4%BF%9D%E6%8A%A4%E6%9C%BA%E5%88%B6/" class="archive-article-date">
-        <time datetime="2020-08-22T09:16:55.631Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-22</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="程序保护机制"><a href="#程序保护机制" class="headerlink" title="程序保护机制"></a>程序保护机制</h1><h2 id="1-NX"><a href="#1-NX" class="headerlink" title="1) NX:"></a>1) NX:</h2><p>数据执行保护，即DEP (Data Execution Prevention)，(non-executable memory)中执行指令。在80x86体系结构中，操作系统的内存管理是通过页面表(page table)存储方式来实现的，其最后一位就是NX位，0表示允许执行代码，1表示禁止执行代码。一般来说，NX主要是防止直接在 栈(stack) 和 堆(heap) 上运行shellcode代码。gcc默认开启不可执行栈功能，添加编译选项-z execstack即可开启栈可执行功能。</p>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/08/22/%E7%A8%8B%E5%BA%8F%E4%BF%9D%E6%8A%A4%E6%9C%BA%E5%88%B6/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-web中xff与referer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/08/12/web%E4%B8%ADxff%E4%B8%8Ereferer/" target="_blank">web中xff与referer</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/08/12/web%E4%B8%ADxff%E4%B8%8Ereferer/" class="archive-article-date">
-        <time datetime="2020-08-11T16:15:25.753Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-12</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="web中xff与referer"><a href="#web中xff与referer" class="headerlink" title="web中xff与referer"></a>web中xff与referer</h1><h2 id="XFF字段"><a href="#XFF字段" class="headerlink" title="XFF字段"></a>XFF字段</h2><p>X-Forwarded-For(XFF)是用来识别通过HTTP代理或负载均衡方式连接到Web服务器的客户端最原始的IP地址的HTTP请求头字段。通俗来说，就是浏览器访问网站的IP。一般格式：<br>X-Forwarded-For: client1, proxy1, proxy2, proxy3<br>左边第一个是浏览器IP，依次往右为第一个代理服务器IP,第二个，第三个（使用逗号+空格进行分割） </p>
-<p>X-Forwarded-For值表示的是IP地址<br>例如：<code>X-Forwarded-For:123.123.123.123</code> </p>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/08/12/web%E4%B8%ADxff%E4%B8%8Ereferer/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-弱类型比较" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/08/11/%E5%BC%B1%E7%B1%BB%E5%9E%8B%E6%AF%94%E8%BE%83/" target="_blank">弱类型比较</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/08/11/%E5%BC%B1%E7%B1%BB%E5%9E%8B%E6%AF%94%E8%BE%83/" class="archive-article-date">
-        <time datetime="2020-08-11T15:55:01.991Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-11</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="弱类型比较"><a href="#弱类型比较" class="headerlink" title="弱类型比较"></a>弱类型比较</h1><p>当两个不同类型的参数进行 ‘==’ 比较而非 ‘===’ 比较时，将会转换成相同类型进行比较。</p>
-<ol>
-<li>var_dump(“admin”==0);  //true</li>
-<li>var_dump(“1admin”==1); //true</li>
-<li>var_dump(“admin1”==1) //false</li>
-<li>var_dump(“admin1”==0) //true</li>
-<li>var_dump(“0e123456”==”0e4456789”); //true </li>
-</ol>
-<p>由第1个和第2个可知，当第一个字符为数字，后面都是字符串或字符时，字符串或字符将会等同于0，整体等于第1个数字加上0，又因为题目具体要求为与 1 比较，所以这时候的GET参数构造就应该为 1xxxxx，xxxxx为任意字母。</p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/08/11/%E5%BC%B1%E7%B1%BB%E5%9E%8B%E6%AF%94%E8%BE%83/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Robots协议" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/08/11/Robots%E5%8D%8F%E8%AE%AE/" target="_blank">Robots协议</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/08/11/Robots%E5%8D%8F%E8%AE%AE/" class="archive-article-date">
-        <time datetime="2020-08-11T09:43:29.888Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-11</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="Robots协议"><a href="#Robots协议" class="headerlink" title="Robots协议"></a>Robots协议</h1><p><code>Robots协议（也称为爬虫协议、机器人协议等）的全称是“网络爬虫排除标准”（Robots ExclusionProtocol），网站通过Robots协议告诉搜索引擎哪些页面可以抓取，哪些页面不能抓取.</code></p>
-<p>根据协议，网站管理员可以在网站域名的根目录下放一个robots.txt 文本文件，里面可以指定不同的网络爬虫能访问的页面和禁止访问的页面，指定的页面由正则表达式表示。网络爬虫在采集这个网站之前，首先获取到这个文件，然后解析到其中的规则，然后根据规则来采集网站的数据。</p>
-<p>为什么需要Robots协议<br>互联网上的网页是通过超级链接互相关联起来的，从而形成了网页的网状结构。爬虫的工作方式就像蜘蛛在网上沿着链接爬来爬去，最基本的流程可以简化如下：</p>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/08/11/Robots%E5%8D%8F%E8%AE%AE/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-buuctf-web" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/08/08/buuctf-web/" target="_blank">buuctf-web</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/08/08/buuctf-web/" class="archive-article-date">
-        <time datetime="2020-08-08T15:47:27.473Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-08</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="1-HCTF-2018-WarmUp-1-2020-08-09"><a href="#1-HCTF-2018-WarmUp-1-2020-08-09" class="headerlink" title="1.[HCTF 2018]WarmUp-1 2020.08.09"></a>1.[HCTF 2018]WarmUp-1 2020.08.09</h2><p><img src="./%5BHCTF%202018%5DWarmUp-1.png" alt><br>打开网页，查看源代码，发现<code>source.php</code>，添加到url后进入<br><img src="./%5BHCTF%202018%5DWarmUp-2.png" alt></p>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/08/08/buuctf-web/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -1003,8 +439,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

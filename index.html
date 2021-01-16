@@ -194,6 +194,82 @@
             
 
   
+    <article id="post-rot13算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/01/16/rot13%E7%AE%97%E6%B3%95/" target="_blank">rot13算法</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/01/16/rot13%E7%AE%97%E6%B3%95/" class="archive-article-date">
+        <time datetime="2021-01-16T15:50:39.030Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-16</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="密码描述"><a href="#密码描述" class="headerlink" title="密码描述"></a>密码描述</h2><p>套用ROT13到一段文字上仅仅只需要检查字元字母顺序并取代它在13位之后的对应字母，有需要超过时则重新绕回26英文字母开头即可。A换成N、B换成O、依此类推到M换成Z，然后序列反转：N换成A、O换成B、最后Z换成M。只有这些出现在英文字母里头的字元受影响；数字、符号、空白字元以及所有其他字元都不变。因为只有在英文字母表里头只有26个，并且26=2×13，ROT13函数是它自己的逆反：</p>
+<p>对任何字元x：<code>ROT13(ROT13(x))=ROT26(x)=x。</code><br>换句话说，两个连续的ROT13应用函式会回复原始文字（在数学上，这有时称之为对合（involution）；在密码学上，这叫做对等加密（reciprocalcipher））。</p>
+<h2 id="python实现"><a href="#python实现" class="headerlink" title="python实现"></a>python实现</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">def rot13(i):</span><br><span class="line">    cipher &#x3D; &#39;&#39;</span><br><span class="line">    if i.isupper():</span><br><span class="line">        if 90 &gt;&#x3D; ord(i) + 13:</span><br><span class="line">            cipher +&#x3D; chr((ord(i) + 13 - 65) % 26 + 65)</span><br><span class="line">        else:</span><br><span class="line">            cipher +&#x3D; chr((ord(i) - 13 - 65) % 26 + 65)</span><br><span class="line">    elif i.islower():</span><br><span class="line">        if 122 &gt;&#x3D; ord(i) + 13:</span><br><span class="line">            cipher +&#x3D; chr((ord(i) + 13 - 97) % 26 + 97)</span><br><span class="line">        else:</span><br><span class="line">            cipher +&#x3D; chr((ord(i) - 13 - 97) % 26 + 97)</span><br><span class="line">    else:</span><br><span class="line">        cipher +&#x3D; i</span><br><span class="line">    return cipher</span><br></pre></td></tr></table></figure>
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/01/16/rot13%E7%AE%97%E6%B3%95/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-线程创建函数 CreateThread" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -864,83 +940,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2020/09/06/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C-web/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-web序列化与反序列化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/09/05/web%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" target="_blank">web序列化与反序列化</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/09/05/web%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" class="archive-article-date">
-        <time datetime="2020-09-05T15:41:19.406Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-05</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="序列化与反序列化"><a href="#序列化与反序列化" class="headerlink" title="序列化与反序列化"></a>序列化与反序列化</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><strong>序列化（串行化）：</strong><br>是将变量转换为可保存或传输的字符串的过程；</p>
-<p><strong>反序列化（反串行化）：</strong><br>就是在适当的时候把这个字符串再转化成原来的变量使用。</p>
-<p>这两个过程结合起来，可以轻松地存储和传输数据，使程序更具维护性。</p>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/09/05/web%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">展开全文 >></a>
     </p>
     
 
