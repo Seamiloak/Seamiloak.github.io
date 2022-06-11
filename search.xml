@@ -611,7 +611,7 @@ sizeof(string)=4byte，如果string字符串内容很多，就会溢出，所以
       </tags>
   </entry>
   <entry>
-    <title>pwntools 使用</title>
+    <title>gdb-peda 使用</title>
     <url>/2020/10/16/gdb-peda%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">$ pip install peda</span><br><span class="line">$ git clone https://github.com/longld/peda.git ~/peda</span><br><span class="line">$ echo "source ~/peda/peda.py" &gt;&gt; ~/.gdbinit </span><br></pre></td></tr></tbody></table></figure>
 
